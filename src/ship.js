@@ -1,20 +1,8 @@
 class Ship {
-    constructor(length) {
+    constructor(length, hit) {
         this.length = length;
-        this.hitSquare = false;
-        this.isSunk = false;
-    }
-
-    hit = (attSquare) => {
-        if (gameSquare == attSquare) {
-            let hitSquare = 'hit';
-            return hitSquare;
-        }
-    }
-
-    isSunk = (length, hitSquare) => {
-        if (Ship.hitSquare == 'hit') {
-            return true;
-        }
+        this.hit = hit;
+        this.isAlive = true;
     }
 }
+module.exports = Ship;
