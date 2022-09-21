@@ -10,5 +10,5 @@ test('Ship class creates a new object', () => {
 }); 
 
 test('Ship is hit', () => {
-    expect(Ship.hit(1)).toBe(1);
+    expect(Ship.hit(1, [1,2,3,4])).toEqual(['x',2,3,4]);
 });
