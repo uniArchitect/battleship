@@ -6,20 +6,27 @@ class Ship {
         this.isAlive = true;
     }
 
-    // Takes a number and marks that position as 'hit'
+    // Takes a number, object.hitSquares and marks that hitSquare as 'hit'
     // Test hit to be hit multiple times
-    static hit(num, hitLocation) {
+    static hit(num, hitSquares) {
         // hitLocation is an array that represents length of each ship - Goal: [1,2,3,4] toBe [x,2,3,4]
-        let index = hitLocation.findIndex(spot => spot === num);
+        let index = hitSquares.findIndex(spot => spot === num);
         // hitLocation.splice() - index[0] with 'x'
-        hitLocation.splice(index, 1, 'x');
+        hitSquares.splice(index, 1, 'x');
 
-        return hitLocation;
+        return hitSquares;
     }
 
-    // Test isSunk() - Calculates based on length and whether all positions are 'hit'
-    static isSunk() {
+    // Checks based on object.hitSquares and whether all positions are 'hit' ('x')
+    static checkSunk(hitSquares) {
         // if isHit of object is filled, return isAlive as false
+        const isSunk = hitSquares.every(element => {
+            if (element === 'x') {
+                return true;
+            }
+        });
+
+        return isSunk;
     }
 }
 module.exports = Ship;
