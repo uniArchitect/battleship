@@ -15,6 +15,12 @@ class Gameboard {
         }
     }
 
+    for (let i = 0; i < rows; i++) {
+        for(let j = 0; j < cols; j++) {
+            board[i][j] = j;
+        }
+    }
+
     return board;
 
     // program to create a two dimensional array
