@@ -2,9 +2,10 @@
 const Gameboard = require("../Gameboard");
 
 test("Gameboard test empty array", () => {
-    expect(new Gameboard(3,2)).toEqual({
-        rows: 3,
-        cols: 3,
+    expect(new Gameboard(2,2)).toEqual({
+        rows: 2,
+        cols: 2,
+        board: [[], [], [], []]
     })
 })
 
