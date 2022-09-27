@@ -8,25 +8,24 @@ class Gameboard {
 
     let board = [];
 
-    for (let i = 0; i < (rows * cols); i++) {
-        board[i] = [];
-    }
-
-    this.board = board;
-
     // Create empty two dimensional array based on how many inputs are in place
     // Make a for loop that will determine the amount of inputs in progression , rows * cols = board[i]
-    // for (let i = 0; i < rows; i++) {
-    //     for (let j = 0; j < cols; j++) {
-    //         board[i] = [];
-    //     }
+    // for (let i = 0; i < (rows * cols); i++) {
+    //     board[i] = [];
     // }
 
-    // for (let i = 0; i < rows; i++) {
-    //     for(let j = 0; j < cols; j++) {
-    //         board[i][j] = j;
-    //     }
-    // }
+    for (let i = 0; i < rows; i++) {
+        board[i] = [];
+        for(let j = 0; j < cols; j++) {
+            board[i][j] = 0;
+        }
+    }
+
+    // 2x2 array
+    // [[0,0]
+    // [0,0]]
+    
+    this.board = board;
 
     // return board;
 
