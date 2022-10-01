@@ -9,7 +9,6 @@ class Gameboard {
     let board = [];
 
     // Create empty two dimensional array based on how many inputs are in place
-    // Make a for loop that will determine the amount of inputs in progression , rows * cols = board[i]
     for (let i = 0; i < rows; i++) {
         board[i] = [];
         for(let j = 0; j < cols; j++) {
@@ -43,6 +42,11 @@ class Gameboard {
   }
 
   // Event - Receive attacks
+  static receiveAttack = (xCoord, yCoord, placeShip) => {
+    if (placeShip[xCoord][yCoord] == '1') {
+      return 'hit!';
+    } else return 'miss!';
+  }
 
   // Event - Track misses
 
