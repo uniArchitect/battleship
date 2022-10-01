@@ -27,13 +27,15 @@ class Gameboard {
     const editBoard = Gameboard.board;
 
     // call ship.hitSquares (ex. [1,1,1,1,1])
+    // xCoord determines row to place ship
     if (orientation == 'horizontal') {
       for (let i = 0; i < ship.hitSquares.length; i++) {
-        editBoard[xCoord][i] = ship.hitSquares[i];
+        editBoard[xCoord][yCoord + i] = ship.hitSquares[i];
       }  
+    // yCoord determines column to place ship
     } else if (orientation == 'vertical') {
       for (let i = 0; i < ship.hitSquares.length; i++) {
-        editBoard[i][yCoord] = ship.hitSquares[i];
+        editBoard[xCoord + i][yCoord] = ship.hitSquares[i];
       }  
     }
 

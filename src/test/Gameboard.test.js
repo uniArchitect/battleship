@@ -21,30 +21,28 @@ test("Gameboard test empty array", () => {
 })
 
 test("Gameboard call Ship class constructor", () => {
-    expect(Gameboard.placeShip('vertical', 0, 2, 5, new Gameboard(5,5))).toEqual({
-            board: [
-            [0,0,1,0,0],
-            [0,0,1,0,0],
-            [0,0,1,0,0],
-            [0,0,1,0,0],
-            [0,0,1,0,0],
-            ]
-        });
+    expect(Gameboard.placeShip('horizontal', 1, 1, 3, new Gameboard(5,5))).toEqual([
+            [0,0,0,0,0],
+            [0,1,1,1,0],
+            [0,0,0,0,0],
+            [0,0,0,0,0],
+            [0,0,0,0,0],
+        ]
+    );
   });
 
 test("Gameboard call Ship class constructor", () => {
-expect(Gameboard.placeShip('vertical', 0, 2, 5, new Gameboard(10,10))).toEqual({
-        board: [
-            [0,0,1,0,0,0,0,0,0,0], 
+expect(Gameboard.placeShip('vertical', 1, 2, 5, new Gameboard(10,10))).toEqual([
+            [0,0,0,0,0,0,0,0,0,0], 
             [0,0,1,0,0,0,0,0,0,0],
             [0,0,1,0,0,0,0,0,0,0],
             [0,0,1,0,0,0,0,0,0,0],
             [0,0,1,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,1,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0], 
         ]
-    });
+    );
 });
