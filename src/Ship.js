@@ -14,9 +14,8 @@ class Ship {
   // Test hit to be hit multiple times
   static hit(num, hitSquares) {
     // hitSquares is an array that represents length of each ship - Goal: [1,1,1,1] toBe [x,1,1,1]
-    let index = hitSquares.findIndex((spot) => spot === num);
-    // hitSquares.splice() - index[0] with 'x'
-    hitSquares.splice(index, 1, "x");
+    // hitSquares.splice() - replace num(index) with 'x'
+    hitSquares.splice((num-1), 1, "x");
 
     return hitSquares;
   }
