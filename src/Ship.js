@@ -2,17 +2,20 @@
 class Ship {
   constructor(length) {
     this.length = length;
-    // isHit countdown array from value given in length - ex. length = 4, isHit = [1,2,3,4]
-    this.hitSquares = [...Array(length).keys()].map((i) => i + 1);
+    // isHit countdown array from value given in length - ex. length = 4, isHit = [1,1,1,1]
+    let shipLife = [...Array(length)].map((i) => i = 1);
+
+    this.hitSquares = shipLife;
+    // this.hitSquares = [...Array(length).keys()].map((i) => i + 1);
     this.isAlive = true;
   }
 
   // Takes a number, object.hitSquares and marks that hitSquare as 'hit'
   // Test hit to be hit multiple times
   static hit(num, hitSquares) {
-    // hitLocation is an array that represents length of each ship - Goal: [1,2,3,4] toBe [x,2,3,4]
+    // hitSquares is an array that represents length of each ship - Goal: [1,1,1,1] toBe [x,1,1,1]
     let index = hitSquares.findIndex((spot) => spot === num);
-    // hitLocation.splice() - index[0] with 'x'
+    // hitSquares.splice() - index[0] with 'x'
     hitSquares.splice(index, 1, "x");
 
     return hitSquares;
