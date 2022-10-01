@@ -10,53 +10,24 @@ class Gameboard {
 
     // Create empty two dimensional array based on how many inputs are in place
     // Make a for loop that will determine the amount of inputs in progression , rows * cols = board[i]
-    // for (let i = 0; i < (rows * cols); i++) {
-    //     board[i] = [];
-    // }
-
     for (let i = 0; i < rows; i++) {
         board[i] = [];
         for(let j = 0; j < cols; j++) {
             board[i][j] = 0;
         }
     }
-
-    // 2x2 array
-    // [[0,0]
-    // [0,0]]
     
     this.board = board;
-
-    // return board;
-
-    // program to create a two dimensional array
-    // function twoDimensionArray(a, b) {
-    //     let arr = [];
-
-    //     // creating two dimensional array
-    //     for (let i = 0; i< a; i++) {
-    //         for(let j = 0; j< b; j++) {
-    //             arr[i] = [];
-    //         }
-    //     }
-
-    //     // inserting elements to array
-    //     for (let i = 0; i< a; i++) {
-    //         for(let j = 0; j< b; j++) {
-    //             arr[i][j] = j;
-    //         }
-    //     }
-    //     return arr;
-    // }
-
-    // const x = 2;
-    // const y = 3;
   }
 
   // Event - Place ships (object from Ship.js)
-  static placeShip = (shipLength) => {
+  // Arguments needed to determine where to place coordinates
+  static placeShip = (shipLength, Gameboard) => {
     const ship = new Ship(shipLength);
-    return ship;
+    const editBoard = Gameboard.board;
+    // call ship.hitSquares (ex. [1,1,1,1,1])
+    editBoard.splice(1, 0, ship.hitSquares);
+    return editBoard;
   }
 
   // Event - Receive attacks
