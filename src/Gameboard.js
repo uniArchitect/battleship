@@ -44,8 +44,14 @@ class Gameboard {
   // Event - Receive attacks
   static receiveAttack = (xCoord, yCoord, placeShip) => {
     if (placeShip[xCoord][yCoord] == '1') {
-      return 'hit!';
-    } else return 'miss!';
+      placeShip[xCoord][yCoord] = 'x';
+      // return 'hit!';
+      return placeShip;
+    } else {
+      placeShip[xCoord][yCoord] = 'm';
+      // return 'miss!';
+      return placeShip;
+    }
   }
 
   // Event - Track misses
