@@ -38,17 +38,21 @@ class Gameboard {
       }  
     }
 
-    return editBoard;
+    return { editBoard, ship };
   }
 
   // Event - Receive attacks
   static receiveAttack = (xCoord, yCoord, placeShip) => {
-    if (placeShip[xCoord][yCoord] == '1') {
-      placeShip[xCoord][yCoord] = 'x';
+    if (placeShip.editBoard[xCoord][yCoord] == '1') {
+      placeShip.editBoard[xCoord][yCoord] = 'x';
+      // Event - Ship.hit(index, hitSquares) will replace value of placeShip.ship.hitSquares
+      // Stand in index value until a variable can be set up to determine if the first, second, third, etc. position is hit
+      let index = 1;
+      placeShip.ship.hitSquares = Ship.hit(index, placeShip.ship.hitSquares)
       // return 'hit!';
       return placeShip;
     } else {
-      placeShip[xCoord][yCoord] = 'm';
+      placeShip.editBoard[xCoord][yCoord] = 'm';
       // return 'miss!';
       return placeShip;
     }

@@ -12,10 +12,10 @@ class Ship {
 
   // Takes a number, object.hitSquares and marks that hitSquare as 'hit'
   // Test hit to be hit multiple times
-  static hit(num, hitSquares) {
+  static hit(index, hitSquares) {
     // hitSquares is an array that represents length of each ship - Goal: [1,1,1,1] toBe [x,1,1,1]
     // hitSquares.splice() - replace num(index) with 'x'
-    hitSquares.splice((num-1), 1, "x");
+    hitSquares.splice((index-1), 1, "x");
 
     return hitSquares;
   }
