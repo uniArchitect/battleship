@@ -22,14 +22,19 @@ class Gameboard {
 
   // Event - Place ships (object from Ship.js)
   // Arguments needed to determine where to place coordinates
-  static placeShip = (xCoord, shipLength, Gameboard) => {
+  static placeShip = (orientation, xCoord, yCoord, shipLength, Gameboard) => {
     const ship = new Ship(shipLength);
     const editBoard = Gameboard.board;
-    // call ship.hitSquares (ex. [1,1,1,1,1])
-    // editBoard.splice(1, 0, ship.hitSquares);
 
-    for (let i = 0; i < ship.hitSquares.length; i++) {
-      editBoard[xCoord][i] = ship.hitSquares[i];
+    // call ship.hitSquares (ex. [1,1,1,1,1])
+    if (orientation == 'horizontal') {
+      for (let i = 0; i < ship.hitSquares.length; i++) {
+        editBoard[xCoord][i] = ship.hitSquares[i];
+      }  
+    } else if (orientation == 'vertical') {
+      for (let i = 0; i < ship.hitSquares.length; i++) {
+        editBoard[i][yCoord] = ship.hitSquares[i];
+      }  
     }
 
     return editBoard;
