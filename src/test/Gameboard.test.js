@@ -20,22 +20,23 @@ const Gameboard = require("../Gameboard");
 //     })
 // });
 
-// test("Gameboard call Ship class constructor", () => {
-//     expect(Gameboard.placeShip('horizontal', 1, 1, 3, new Gameboard(5,5))).toEqual({
-//         editBoard: [
-//             [0,0,0,0,0],
-//             [0,1,2,3,0],
-//             [0,0,0,0,0],
-//             [0,0,0,0,0],
-//             [0,0,0,0,0],
-//         ],
-//         ship: {
-//             hitSquares: [1, 2, 3],
-//             isAlive: true,
-//             length: 3,
-//         }
-//     });
-// });
+test("Gameboard call Ship class constructor", () => {
+    expect(Gameboard.placeShip('horizontal', 1, 1, 3, new Gameboard(5,5))).toEqual({
+        editBoard: [
+            [0,0,0,0,0],
+            [0,1,2,3,0],
+            [0,0,0,0,0],
+            [0,0,0,0,0],
+            [0,0,0,0,0],
+        ],
+        ship: {
+            name: 'Battleship',
+            hitSquares: [1, 2, 3],
+            isAlive: true,
+            length: 3,
+        }
+    });
+});
 
 // test("Gameboard call Ship class constructor", () => {
 // expect(Gameboard.placeShip('vertical', 1, 2, 5, new Gameboard(10,10))).toEqual([
@@ -80,6 +81,7 @@ test("Ship receives an attack and declares hit at 3rd position", () => {
         [0,0,0,0,0],
     ],
         ship: {
+            name: 'Battleship',
             hitSquares: [1, 2, "x"],
             isAlive: true,
             length: 3,
@@ -87,18 +89,23 @@ test("Ship receives an attack and declares hit at 3rd position", () => {
     });
 });
 
-test("Ship receives an attack and declares hit or miss", () => {
-    expect(Gameboard.receiveAttack(0, 0, Gameboard.placeShip('horizontal', 1, 1, 3, new Gameboard(5,5)))).toEqual({
-        editBoard: [
-        ["m",0,0,0,0],
-        [0,1,2,3,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-    ],
-        ship: {
-            hitSquares: [1, 2, 3],
-            isAlive: true,
-            length: 3,    
-        }});
-});
+// test("Ship receives an attack and declares ship is sunk", () => {
+//     expect(Gameboard.checkEndGame(ship))
+//         .toBe('End Game');
+// });
+
+// test("Ship receives an attack and declares miss", () => {
+//     expect(Gameboard.receiveAttack(0, 0, Gameboard.placeShip('horizontal', 1, 1, 3, new Gameboard(5,5)))).toEqual({
+//         editBoard: [
+//         ["m",0,0,0,0],
+//         [0,1,2,3,0],
+//         [0,0,0,0,0],
+//         [0,0,0,0,0],
+//         [0,0,0,0,0],
+//     ],
+//         ship: {
+//             hitSquares: [1, 2, 3],
+//             isAlive: true,
+//             length: 3,    
+//         }});
+// });

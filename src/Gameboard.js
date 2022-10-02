@@ -22,7 +22,7 @@ class Gameboard {
   // Event - Place ships (object from Ship.js)
   // Arguments needed to determine where to place coordinates
   static placeShip = (orientation, xCoord, yCoord, shipLength, Gameboard) => {
-    const ship = new Ship(shipLength);
+    const ship = new Ship(shipLength, 'Battleship');
     const editBoard = Gameboard.board;
 
     // call ship.hitSquares (ex. [1,2,3,4,5])
@@ -48,22 +48,26 @@ class Gameboard {
     if (hitMarker <= '5' && hitMarker != 0) {
       let shipIndex = hitMarker;
       placeShip.editBoard[xCoord][yCoord] = 'x';
-      // Event - Ship.hit(index, hitSquares) will replace value of placeShip.ship.hitSquares
-      // Stand in index value until a variable can be set up to determine if the first, second, third, etc. position is hit
 
-      placeShip.ship.hitSquares = Ship.hit(shipIndex, placeShip.ship.hitSquares)
+      // Event - Ship.hit(index, hitSquares) will replace value of placeShip.ship.hitSquares
+      placeShip.ship.hitSquares = Ship.hit(shipIndex, placeShip.ship.hitSquares);
+
       // return 'hit!';
       return placeShip;
     } else {
+      // Event - Track misses
       placeShip.editBoard[xCoord][yCoord] = 'm';
       // return 'miss!';
       return placeShip;
     }
   }
 
-  // Event - Track misses
-
   // Event - Report end of game
+  static checkEndGame = (ship) => {
+    if (ship.isAlive == false) {
+      return 'End Game';
+    } else return;
+  }
 }
 
 module.exports = Gameboard;
