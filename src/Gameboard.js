@@ -22,32 +22,32 @@ class Gameboard {
   // Event - Place ships (object from Ship.js)
   // Arguments needed to determine where to place coordinates
   static placeShip = (orientation, xCoord, yCoord, shipLength, Gameboard) => {
+    const board = Gameboard.board;
     const ship = new Ship(shipLength, 'Battleship');
-    const editBoard = Gameboard.board;
 
     // call ship.hitSquares (ex. [1,2,3,4,5])
     // xCoord determines row to place ship
     if (orientation == 'horizontal') {
       for (let i = 0; i < ship.hitSquares.length; i++) {
-        editBoard[xCoord][yCoord + i] = ship.hitSquares[i];
+        board[xCoord][yCoord + i] = ship.hitSquares[i];
       }  
     // yCoord determines column to place ship
     } else if (orientation == 'vertical') {
       for (let i = 0; i < ship.hitSquares.length; i++) {
-        editBoard[xCoord + i][yCoord] = ship.hitSquares[i];
+        board[xCoord + i][yCoord] = ship.hitSquares[i];
       }  
     }
 
-    return { editBoard, ship };
+    return Gameboard;
   }
 
   // Event - Receive attacks
   static receiveAttack = (xCoord, yCoord, placeShip) => {
-    const hitMarker = placeShip.editBoard[xCoord][yCoord];
+    const hitMarker = placeShip.board[xCoord][yCoord];
 
     if (hitMarker <= '5' && hitMarker != 0) {
       let shipIndex = hitMarker;
-      placeShip.editBoard[xCoord][yCoord] = 'x';
+      placeShip.board[xCoord][yCoord] = 'x';
 
       // Event - Ship.hit(index, hitSquares) will replace value of placeShip.ship.hitSquares
       placeShip.ship.hitSquares = Ship.hit(shipIndex, placeShip.ship.hitSquares);
@@ -59,7 +59,7 @@ class Gameboard {
       // return 'hit!';
     } else {
       // Event - Track misses
-      placeShip.editBoard[xCoord][yCoord] = 'm';
+      placeShip.board[xCoord][yCoord] = 'm';
       // return 'miss!';
       return placeShip;
     }
