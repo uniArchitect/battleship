@@ -3,10 +3,10 @@ class Ship {
   constructor(length) {
     this.length = length;
     // isHit countdown array from value given in length - ex. length = 4, isHit = [1,1,1,1]
-    let shipLife = [...Array(length)].map((i) => i = 1);
-
-    this.hitSquares = shipLife;
-    // this.hitSquares = [...Array(length).keys()].map((i) => i + 1);
+    // let shipLife = [...Array(length)].map((i) => i = 1);
+    // this.hitSquares = shipLife;
+    
+    this.hitSquares = [...Array(length).keys()].map((i) => i + 1);
     this.isAlive = true;
   }
 

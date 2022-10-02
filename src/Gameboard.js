@@ -25,7 +25,7 @@ class Gameboard {
     const ship = new Ship(shipLength);
     const editBoard = Gameboard.board;
 
-    // call ship.hitSquares (ex. [1,1,1,1,1])
+    // call ship.hitSquares (ex. [1,2,3,4,5])
     // xCoord determines row to place ship
     if (orientation == 'horizontal') {
       for (let i = 0; i < ship.hitSquares.length; i++) {
@@ -43,12 +43,13 @@ class Gameboard {
 
   // Event - Receive attacks
   static receiveAttack = (xCoord, yCoord, placeShip) => {
-    if (placeShip.editBoard[xCoord][yCoord] == '1') {
+    if (placeShip.editBoard[xCoord][yCoord] <= '5') {
+      let shipIndex = placeShip.editBoard[xCoord][yCoord];
       placeShip.editBoard[xCoord][yCoord] = 'x';
       // Event - Ship.hit(index, hitSquares) will replace value of placeShip.ship.hitSquares
       // Stand in index value until a variable can be set up to determine if the first, second, third, etc. position is hit
-      let index = 1;
-      placeShip.ship.hitSquares = Ship.hit(index, placeShip.ship.hitSquares)
+
+      placeShip.ship.hitSquares = Ship.hit(shipIndex, placeShip.ship.hitSquares)
       // return 'hit!';
       return placeShip;
     } else {

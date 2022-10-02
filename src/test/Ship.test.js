@@ -4,7 +4,7 @@ const Ship = require("../Ship");
 test("Ship class creates a new object", () => {
   expect(new Ship(4)).toEqual({
     length: 4,
-    hitSquares: [1, 1, 1, 1],
+    hitSquares: [1, 2, 3, 4],
     isAlive: true,
   });
 });
