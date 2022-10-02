@@ -26,7 +26,7 @@ class Ship {
     const isSunk = hitSquares.every((element) => {
       if (element === "x") {
         return true;
-      }
+      } else return;
     });
 
     return isSunk;

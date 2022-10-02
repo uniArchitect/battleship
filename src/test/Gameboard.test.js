@@ -72,18 +72,33 @@ test("Gameboard call Ship class constructor", () => {
 // });
 
 test("Ship receives an attack and declares hit at 3rd position", () => {
-    expect(Gameboard.receiveAttack(1, 3, Gameboard.placeShip('horizontal', 1, 1, 3, new Gameboard(5,5)))).toEqual({
+    let testBoard = {
         editBoard: [
         [0,0,0,0,0],
-        [0,1,2,"x",0],
+        [0,"x","x",3,0],
         [0,0,0,0,0],
         [0,0,0,0,0],
         [0,0,0,0,0],
     ],
         ship: {
             name: 'Battleship',
-            hitSquares: [1, 2, "x"],
+            hitSquares: ["x", "x", 3],
             isAlive: true,
+            length: 3,
+        }
+    }
+    expect(Gameboard.receiveAttack(1, 3, testBoard)).toEqual({
+        editBoard: [
+        [0,0,0,0,0],
+        [0,"x","x","x",0],
+        [0,0,0,0,0],
+        [0,0,0,0,0],
+        [0,0,0,0,0],
+    ],
+        ship: {
+            name: 'Battleship',
+            hitSquares: ["x", "x", "x"],
+            isAlive: false,
             length: 3,
         }
     });

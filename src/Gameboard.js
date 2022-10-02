@@ -52,8 +52,11 @@ class Gameboard {
       // Event - Ship.hit(index, hitSquares) will replace value of placeShip.ship.hitSquares
       placeShip.ship.hitSquares = Ship.hit(shipIndex, placeShip.ship.hitSquares);
 
+      // Event - Check to see if ship is sunk, change isAlive property if sunk
+      if (Ship.checkSunk(placeShip.ship.hitSquares)) {
+        placeShip.ship.isAlive = false;
+      } return placeShip;
       // return 'hit!';
-      return placeShip;
     } else {
       // Event - Track misses
       placeShip.editBoard[xCoord][yCoord] = 'm';
