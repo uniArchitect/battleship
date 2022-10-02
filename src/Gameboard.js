@@ -43,8 +43,10 @@ class Gameboard {
 
   // Event - Receive attacks
   static receiveAttack = (xCoord, yCoord, placeShip) => {
-    if (placeShip.editBoard[xCoord][yCoord] <= '5') {
-      let shipIndex = placeShip.editBoard[xCoord][yCoord];
+    const hitMarker = placeShip.editBoard[xCoord][yCoord];
+
+    if (hitMarker <= '5' && hitMarker != 0) {
+      let shipIndex = hitMarker;
       placeShip.editBoard[xCoord][yCoord] = 'x';
       // Event - Ship.hit(index, hitSquares) will replace value of placeShip.ship.hitSquares
       // Stand in index value until a variable can be set up to determine if the first, second, third, etc. position is hit
