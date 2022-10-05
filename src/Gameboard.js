@@ -25,6 +25,15 @@ class Gameboard {
     const board = Gameboard.board;
     const ship = new Ship(shipLength, 'Battleship');
 
+    // Add ship object to gameboard
+    // let gameboardLength = Object.keys(Gameboard).length;
+    // const ship = [];
+    // for (let s = 0; s < gameboardLength; s++) {
+    //   ship[s] = new Ship(shipLength, 'Battleship'); 
+    //   const shipArray = ship; 
+    //   return shipArray
+    // }
+
     // call ship.hitSquares (ex. [1,2,3,4,5])
     // xCoord determines row to place ship
     if (orientation == 'horizontal') {
@@ -36,6 +45,15 @@ class Gameboard {
       for (let i = 0; i < ship.hitSquares.length; i++) {
         board[xCoord + i][yCoord] = ship.hitSquares[i];
       }  
+    }
+
+    // Add ship object to Gameboard
+    // ship should be added as a new ship each type
+    let gameboardLength = Object.keys(Gameboard).length;
+    const shipArray = [];
+    Gameboard.ships = shipArray;
+    for (let s = gameboardLength - 1; s < gameboardLength; s++) {
+      Gameboard.ships[s] = ship;
     }
 
     return Gameboard;

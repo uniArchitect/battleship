@@ -30,6 +30,6 @@ test("Ship class creates a new object", () => {
 //   expect(Ship.hit(4, ["x", "x", "x", 1])).toEqual(["x", "x", "x", "x"]);
 // });
 
-test("Ship is sunk", () => {
-  expect(Ship.checkSunk(["x", "x", "x", "x"])).toEqual(true);
-});
+// test("Ship is sunk", () => {
+//   expect(Ship.checkSunk(["x", "x", "x", "x"])).toEqual(true);
+// });
