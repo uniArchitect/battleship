@@ -63,6 +63,8 @@ expect(Gameboard.placeShip('vertical', 1, 2, 5, testBoard)).toEqual({
 
 test("Gameboard calls Ship class constructor", () => {
     let testBoard = {
+        rows: 5,
+        cols: 5,
         board: [
             [0,0,0,0,0],
             [0,0,0,0,0],
@@ -70,8 +72,11 @@ test("Gameboard calls Ship class constructor", () => {
             [0,0,0,0,0],
             [0,0,0,0,0],
         ],
+        ships: [],
     }
     expect(Gameboard.placeShip('horizontal', 1, 1, 3, testBoard)).toEqual({
+        rows: 5,
+        cols: 5,
         board: [
             [0,0,0,0,0],
             [0,1,2,3,0],
@@ -99,12 +104,14 @@ test.skip("Gameboard calls multiple Ship class constructor", () => {
             [0,0,0,0,0],
             [0,0,0,0,0],
         ],
-        ship: {
-            name: 'Battleship',
-            hitSquares: [1, 2, 3],
-            isAlive: true,
-            length: 3,
-        }
+        ships: [
+                {
+                name: 'Battleship',
+                hitSquares: [1, 2, 3],
+                isAlive: true,
+                length: 3,
+                },
+        ],
     }
     expect(Gameboard.placeShip('vertical', 0, 0, 4, testBoard)).toEqual({
         board: [
@@ -114,19 +121,21 @@ test.skip("Gameboard calls multiple Ship class constructor", () => {
             [4,0,0,0,0],
             [0,0,0,0,0],
         ],
-        ship: {
-            name: 'Battleship',
-            hitSquares: [1, 2, 3],
-            isAlive: true,
-            length: 3,
-        },
-        ship: {
-            name: 'Battleship',
-            hitSquares: [1, 2, 3, 4],
-            isAlive: true,
-            length: 4,
-        },
-    });
+        ships: [
+                {
+                    name: 'Battleship',
+                    hitSquares: [1, 2, 3],
+                    isAlive: true,
+                    length: 3,
+                },
+                {
+                    name: 'Battleship',
+                    hitSquares: [1, 2, 3, 4],
+                    isAlive: true,
+                    length: 4,
+                },
+            ],
+        });
 });
 
 test.skip("Ship receives an attack and declares hit at second position", () => {

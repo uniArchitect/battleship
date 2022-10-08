@@ -3,6 +3,7 @@ import Ship from "./Ship";
 
 class Gameboard {
   constructor(rows, cols) {
+    // 4 properties
     this.rows = rows;
     this.cols = cols;
 
@@ -17,6 +18,9 @@ class Gameboard {
     }
     
     this.board = board;
+
+    let shipArray = [];
+    this.ships = shipArray;
   }
 
   // Event - Place ships (object from Ship.js)
@@ -49,10 +53,9 @@ class Gameboard {
 
     // Add ship object to Gameboard
     // ship should be added as a new ship each type
+    // gameboardLength is 4 by default
     let gameboardLength = Object.keys(Gameboard).length;
-    const shipArray = [];
-    Gameboard.ships = shipArray;
-    for (let s = gameboardLength - 1; s < gameboardLength; s++) {
+    for (let s = 0; s < (gameboardLength - 3); s++) {
       Gameboard.ships[s] = ship;
     }
 
