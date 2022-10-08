@@ -53,26 +53,27 @@ class Gameboard {
   }
 
   // Event - Receive attacks
-  static receiveAttack = (xCoord, yCoord, placeShip) => {
-    const hitMarker = placeShip.board[xCoord][yCoord];
+  static receiveAttack = (xCoord, yCoord, Gameboard) => {
+    const hitMarker = Gameboard.board[xCoord][yCoord];
 
     if (hitMarker <= '5' && hitMarker != 0) {
       let shipIndex = hitMarker;
-      placeShip.board[xCoord][yCoord] = 'x';
+      Gameboard.board[xCoord][yCoord] = 'x';
 
       // Event - Ship.hit(index, hitSquares) will replace value of placeShip.ship.hitSquares
-      placeShip.ship.hitSquares = Ship.hit(shipIndex, placeShip.ship.hitSquares);
+      // Figure out how to choose the specific ship within the array
+      Gameboard.ships[0].hitSquares = Ship.hit(shipIndex, Gameboard.ships[0].hitSquares);
 
       // Event - Check to see if ship is sunk, change isAlive property if sunk
-      if (Ship.checkSunk(placeShip.ship.hitSquares)) {
-        placeShip.ship.isAlive = false;
-      } return placeShip;
+      if (Ship.checkSunk(Gameboard.ships[0].hitSquares)) {
+        Gameboard.ships[0].isAlive = false;
+      } return Gameboard;
       // return 'hit!';
     } else {
       // Event - Track misses
-      placeShip.board[xCoord][yCoord] = 'm';
+      Gameboard.board[xCoord][yCoord] = 'm';
       // return 'miss!';
-      return placeShip;
+      return Gameboard;
     }
   }
 
