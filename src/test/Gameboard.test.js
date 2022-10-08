@@ -61,7 +61,7 @@ expect(Gameboard.placeShip('vertical', 1, 2, 5, testBoard)).toEqual({
     });
 });
 
-test("Gameboard calls Ship class constructor", () => {
+test("Gameboard calls 1 Ship class constructor", () => {
     let testBoard = {
         rows: 5,
         cols: 5,
@@ -84,19 +84,22 @@ test("Gameboard calls Ship class constructor", () => {
             [0,0,0,0,0],
             [0,0,0,0,0],
         ],
-        ships: [
-                {
-                name: 'Battleship',
-                hitSquares: [1, 2, 3],
-                isAlive: true,
-                length: 3,
-                },
+        ships: 
+        [
+            {
+            name: 'Battleship',
+            hitSquares: [1, 2, 3],
+            isAlive: true,
+            length: 3,
+            },
         ],
     });
 });
 
-test.skip("Gameboard calls multiple Ship class constructor", () => {
+test("Gameboard calls 2 Ship class constructor", () => {
     const testBoard = {
+        rows: 5,
+        cols: 5,
         board: [
             [0,0,0,0,0],
             [0,1,2,3,0],
@@ -104,16 +107,19 @@ test.skip("Gameboard calls multiple Ship class constructor", () => {
             [0,0,0,0,0],
             [0,0,0,0,0],
         ],
-        ships: [
-                {
-                name: 'Battleship',
-                hitSquares: [1, 2, 3],
-                isAlive: true,
-                length: 3,
-                },
+        ships: 
+        [
+            {
+            name: 'Battleship',
+            hitSquares: [1, 2, 3],
+            isAlive: true,
+            length: 3,
+            },
         ],
     }
     expect(Gameboard.placeShip('vertical', 0, 0, 4, testBoard)).toEqual({
+        rows: 5,
+        cols: 5,
         board: [
             [1,0,0,0,0],
             [2,1,2,3,0],
@@ -121,21 +127,156 @@ test.skip("Gameboard calls multiple Ship class constructor", () => {
             [4,0,0,0,0],
             [0,0,0,0,0],
         ],
-        ships: [
-                {
-                    name: 'Battleship',
-                    hitSquares: [1, 2, 3],
-                    isAlive: true,
-                    length: 3,
-                },
-                {
-                    name: 'Battleship',
-                    hitSquares: [1, 2, 3, 4],
-                    isAlive: true,
-                    length: 4,
-                },
-            ],
-        });
+        ships: 
+        [
+            {
+                name: 'Battleship',
+                hitSquares: [1, 2, 3],
+                isAlive: true,
+                length: 3,
+            },
+            { 
+                name: 'Battleship',
+                hitSquares: [1, 2, 3, 4],
+                isAlive: true,
+                length: 4,
+            },
+        ],
+    });
+});
+
+test("Gameboard calls 3 Ship class constructors", () => {
+    const testBoard = {
+        rows: 5,
+        cols: 5,
+        board: [
+            [1,0,0,0,0],
+            [2,1,2,3,0],
+            [3,0,0,0,0],
+            [4,0,0,0,0],
+            [0,0,0,0,0],
+        ],
+        ships: 
+        [
+            {
+                name: 'Battleship',
+                hitSquares: [1, 2, 3],
+                isAlive: true,
+                length: 3,
+            },
+            { 
+                name: 'Battleship',
+                hitSquares: [1, 2, 3, 4],
+                isAlive: true,
+                length: 4,
+            },
+        ],
+    }
+    expect(Gameboard.placeShip('horizontal', 3, 2, 3, testBoard)).toEqual({
+        rows: 5,
+        cols: 5,
+        board: [
+            [1,0,0,0,0],
+            [2,1,2,3,0],
+            [3,0,0,0,0],
+            [4,0,1,2,3],
+            [0,0,0,0,0],
+        ],
+        ships: 
+        [
+            {
+                name: 'Battleship',
+                hitSquares: [1, 2, 3],
+                isAlive: true,
+                length: 3,
+            },
+            { 
+                name: 'Battleship',
+                hitSquares: [1, 2, 3, 4],
+                isAlive: true,
+                length: 4,
+            },
+            { 
+                name: 'Battleship',
+                hitSquares: [1, 2, 3],
+                isAlive: true,
+                length: 3,
+            },
+        ],
+    });
+});
+
+test("Gameboard calls 4 Ship class constructors", () => {
+    const testBoard = {
+        rows: 5,
+        cols: 5,
+        board: [
+            [1,0,0,0,0],
+            [2,1,2,3,0],
+            [3,0,0,0,0],
+            [4,0,1,2,3],
+            [0,0,0,0,0],
+        ],
+        ships: 
+        [
+            {
+                name: 'Battleship',
+                hitSquares: [1, 2, 3],
+                isAlive: true,
+                length: 3,
+            },
+            { 
+                name: 'Battleship',
+                hitSquares: [1, 2, 3, 4],
+                isAlive: true,
+                length: 4,
+            },
+            { 
+                name: 'Battleship',
+                hitSquares: [1, 2, 3],
+                isAlive: true,
+                length: 3,
+            },
+        ],
+    }
+    expect(Gameboard.placeShip('horizontal', 4, 0, 5, testBoard)).toEqual({
+        rows: 5,
+        cols: 5,
+        board: [
+            [1,0,0,0,0],
+            [2,1,2,3,0],
+            [3,0,0,0,0],
+            [4,0,1,2,3],
+            [1,2,3,4,5],
+        ],
+        ships: 
+        [
+            {
+                name: 'Battleship',
+                hitSquares: [1, 2, 3],
+                isAlive: true,
+                length: 3,
+            },
+            { 
+                name: 'Battleship',
+                hitSquares: [1, 2, 3, 4],
+                isAlive: true,
+                length: 4,
+            },
+            { 
+                name: 'Battleship',
+                hitSquares: [1, 2, 3],
+                isAlive: true,
+                length: 3,
+            },
+            { 
+                name: 'Battleship',
+                hitSquares: [1, 2, 3, 4, 5],
+                isAlive: true,
+                length: 5,
+            },
+        ],
+    });
 });
 
 test.skip("Ship receives an attack and declares hit at second position", () => {

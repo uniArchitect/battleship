@@ -8,6 +8,7 @@ class Gameboard {
     this.cols = cols;
 
     let board = [];
+    let shipArray = [];
 
     // Create empty two dimensional array based on how many inputs are in place
     for (let i = 0; i < rows; i++) {
@@ -18,8 +19,6 @@ class Gameboard {
     }
     
     this.board = board;
-
-    let shipArray = [];
     this.ships = shipArray;
   }
 
@@ -28,15 +27,6 @@ class Gameboard {
   static placeShip = (orientation, xCoord, yCoord, shipLength, Gameboard) => {
     const board = Gameboard.board;
     const ship = new Ship(shipLength, 'Battleship');
-
-    // Add ship object to gameboard
-    // let gameboardLength = Object.keys(Gameboard).length;
-    // const ship = [];
-    // for (let s = 0; s < gameboardLength; s++) {
-    //   ship[s] = new Ship(shipLength, 'Battleship'); 
-    //   const shipArray = ship; 
-    //   return shipArray
-    // }
 
     // call ship.hitSquares (ex. [1,2,3,4,5])
     // xCoord determines row to place ship
@@ -54,8 +44,8 @@ class Gameboard {
     // Add ship object to Gameboard
     // ship should be added as a new ship each type
     // gameboardLength is 4 by default
-    let gameboardLength = Object.keys(Gameboard).length;
-    for (let s = 0; s < (gameboardLength - 3); s++) {
+    let gameboardLength = Object.keys(Gameboard.ships).length;
+    for (let s = gameboardLength; s < (gameboardLength + 1); s++) {
       Gameboard.ships[s] = ship;
     }
 
