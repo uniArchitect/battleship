@@ -61,7 +61,7 @@ test.skip("Gameboard calls Ship class constructor", () => {
   });
 });
 
-test.skip("Gameboard calls 1 Ship class constructor", () => {
+test("Gameboard calls 1 Ship class constructor", () => {
   let testBoard = {
     rows: 5,
     cols: 5,
@@ -88,6 +88,7 @@ test.skip("Gameboard calls 1 Ship class constructor", () => {
       {
         name: "Battleship",
         hitSquares: [1, 2, 3],
+        hitCount: 0,
         isAlive: true,
         length: 3,
       },
@@ -166,7 +167,7 @@ test.skip("Gameboard calls 4 Ship class constructors", () => {
   });
 });
 
-test.skip("Ship receives an attack and declares hit at second position", () => {
+test("Ship receives an attack and declares hit", () => {
   let testBoard = {
     rows: 5,
     cols: 5,
@@ -181,6 +182,7 @@ test.skip("Ship receives an attack and declares hit at second position", () => {
       {
         name: "Battleship",
         hitSquares: [1, 2, 3],
+        hitCount: 0,
         isAlive: true,
         length: 3,
       },
@@ -190,7 +192,7 @@ test.skip("Ship receives an attack and declares hit at second position", () => {
     Gameboard.receiveAttack(
       1,
       2,
-      Gameboard.placeShip("horizontal", 1, 1, 3, testBoard)
+      testBoard
     )
   ).toEqual({
     rows: 5,
@@ -205,7 +207,8 @@ test.skip("Ship receives an attack and declares hit at second position", () => {
     ships: [
       {
         name: "Battleship",
-        hitSquares: [1, "x", 3],
+        hitSquares: [1, 2, 3],
+        hitCount: 1,
         isAlive: true,
         length: 3,
       },

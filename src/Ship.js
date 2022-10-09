@@ -23,10 +23,6 @@ class Ship {
 
   // Be able to count number of hits
   static hitCount(ship) {
-    // for (let i = hitCount; i < length; i++) {
-    //   hitCount = i;
-    //   return hitCount;
-    // }
     ship.hitCount = ship.hitCount + 1;
     return ship;
   }
@@ -47,7 +43,7 @@ class Ship {
     if (ship.hitCount == ship.length) {
       ship.isAlive = false;
       return ship;
-    } else return
+    } else return;
   }
 }
 module.exports = Ship;
