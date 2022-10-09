@@ -31,16 +31,23 @@ class Ship {
     return ship;
   }
 
-  // Checks based on object.hitSquares and whether all positions are 'hit' ('x')
-  static checkSunk(hitSquares) {
-    // if isHit of object is filled, return isAlive as false
-    const isSunk = hitSquares.every((element) => {
-      if (element === "x") {
-        return true;
-      } else return;
-    });
+  // Checks based on object.hitSquares and whether all positions are 'hit' ('x') - OLD FUNCTION
+  // static checkSunk(hitSquares) {
+  //   // if isHit of object is filled, return isAlive as false
+  //   const isSunk = hitSquares.every((element) => {
+  //     if (element === "x") {
+  //       return true;
+  //     } else return;
+  //   });
 
-    return isSunk;
+  //   return isSunk;
+  // }
+
+  static checkSunk(ship) {
+    if (ship.hitCount == ship.length) {
+      ship.isAlive = false;
+      return ship;
+    } else return
   }
 }
 module.exports = Ship;

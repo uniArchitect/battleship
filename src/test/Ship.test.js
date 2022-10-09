@@ -34,6 +34,21 @@ test("Ship hitCount increases", () => {
   );
 })
 
-test.skip("Ship is sunk", () => {
-  expect(Ship.checkSunk(["x", "x", "x", "x"])).toEqual(true);
+test("Ship is sunk", () => {
+  let testShip = {
+    name: "Battleship",
+    length: 4,
+    hitSquares: [1, 2, 3, 4],
+    hitCount: 4,
+    isAlive: true,
+  }
+  expect(Ship.checkSunk(testShip)).toEqual(
+    {
+      name: "Battleship",
+      length: 4,
+      hitSquares: [1, 2, 3, 4],
+      hitCount: 4,
+      isAlive: false,
+    }
+  );
 });
