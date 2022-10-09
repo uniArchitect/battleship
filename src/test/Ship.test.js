@@ -11,10 +11,6 @@ test("Ship class creates a new object", () => {
   });
 });
 
-test("Ship is hit in the first position", () => {
-  expect(Ship.hit(1, [1, 1, 1, 1])).toEqual(["x", 1, 1, 1]);
-});
-
 test("Ship hitCount increases", () => {
   let testShip = {
     name: "Battleship",

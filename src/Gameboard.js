@@ -63,11 +63,6 @@ class Gameboard {
 
       // Event - Ship.hit(index, hitSquares) will replace value of Gameboard.ships[].hitSquares
       // Figure out how to choose the specific ship within the array - '0' has to be the ship called
-      // Gameboard.ships[0].hitSquares = Ship.hit(
-      //   shipIndex,
-      //   Gameboard.ships[0].hitSquares
-      // );
-
       // Forcefully using the first ship in shipArray for test case - Create a variable that links to each specific
       Ship.hitCount(Gameboard.ships[0]);
       Ship.checkSunk(Gameboard.ships[0]);

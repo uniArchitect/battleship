@@ -12,32 +12,11 @@ class Ship {
     this.isAlive = true;
   }
 
-  // Takes a number, object.hitSquares and marks that hitSquare as 'hit'
-  static hit(index, hitSquares) {
-    // hitSquares is an array that represents length of each ship - Goal: [1,1,1,1] toBe [x,1,1,1]
-    // hitSquares.splice() - replace num(index) with 'x'
-    hitSquares.splice(index - 1, 1, "x");
-
-    return hitSquares;
-  }
-
   // Be able to count number of hits
   static hitCount(ship) {
     ship.hitCount = ship.hitCount + 1;
     return ship;
   }
-
-  // Checks based on object.hitSquares and whether all positions are 'hit' ('x') - OLD FUNCTION
-  // static checkSunk(hitSquares) {
-  //   // if isHit of object is filled, return isAlive as false
-  //   const isSunk = hitSquares.every((element) => {
-  //     if (element === "x") {
-  //       return true;
-  //     } else return;
-  //   });
-
-  //   return isSunk;
-  // }
 
   static checkSunk(ship) {
     if (ship.hitCount == ship.length) {
