@@ -22,13 +22,13 @@ class Ship {
   }
 
   // Be able to count number of hits
-  static hitCount(hitCount) {
+  static hitCount(ship) {
     // for (let i = hitCount; i < length; i++) {
     //   hitCount = i;
     //   return hitCount;
     // }
-    hitCount = hitCount + 1;
-    return hitCount;
+    ship.hitCount = ship.hitCount + 1;
+    return ship;
   }
 
   // Checks based on object.hitSquares and whether all positions are 'hit' ('x')

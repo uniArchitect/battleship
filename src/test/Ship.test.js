@@ -16,7 +16,22 @@ test("Ship is hit in the first position", () => {
 });
 
 test("Ship hitCount increases", () => {
-  expect(Ship.hitCount(3)).toBe(4);
+  let testShip = {
+    name: "Battleship",
+    length: 4,
+    hitSquares: [1, 2, 3, 4],
+    hitCount: 0,
+    isAlive: true,
+  }
+  expect(Ship.hitCount(testShip)).toEqual(
+    {
+      name: "Battleship",
+      length: 4,
+      hitSquares: [1, 2, 3, 4],
+      hitCount: 1,
+      isAlive: true,
+    }
+  );
 })
 
 test.skip("Ship is sunk", () => {
