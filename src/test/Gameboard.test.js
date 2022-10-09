@@ -274,23 +274,36 @@ test.skip("Ship receives an attack and declares hit at 3rd position", () => {
 //         .toBe('End Game');
 // });
 
-test.skip("Ship receives an attack and declares miss", () => {
+test("Ship receives an attack and declares miss", () => {
   let testBoard = {
+    rows: 5,
+    cols: 5,
     board: [
       [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
+      [0, 1, 2, 3, 0],
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
     ],
+    ships: [
+        {
+          name: "Battleship",
+          hitSquares: [1, 2, 3],
+          hitCount: 0,
+          isAlive: true,
+          length: 3,
+        },
+    ]
   };
   expect(
     Gameboard.receiveAttack(
       0,
       0,
-      Gameboard.placeShip("horizontal", 1, 1, 3, testBoard)
+      testBoard
     )
   ).toEqual({
+    rows: 5,
+    cols: 5,
     board: [
       ["m", 0, 0, 0, 0],
       [0, 1, 2, 3, 0],
@@ -298,10 +311,14 @@ test.skip("Ship receives an attack and declares miss", () => {
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
     ],
-    ship: {
-      hitSquares: [1, 2, 3],
-      isAlive: true,
-      length: 3,
-    },
+    ships: [
+        {
+          name: "Battleship",
+          hitSquares: [1, 2, 3],
+          hitCount: 0,
+          isAlive: true,
+          length: 3,
+        },
+    ],
   });
 });
