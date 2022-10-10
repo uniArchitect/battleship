@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 class Ship {
-  constructor(length, name) {
-    this.name = name;
+  constructor(length) {
+    // this.name = name;
     this.length = length;
     // isHit countdown array from value given in length - ex. length = 4, isHit = [1,1,1,1]
     // let shipLife = [...Array(length)].map((i) => i = 1);

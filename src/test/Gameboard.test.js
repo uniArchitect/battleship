@@ -20,48 +20,7 @@ test.skip("Gameboard test empty array", () => {
   });
 });
 
-test.skip("Gameboard calls Ship class constructor", () => {
-  let testBoard = {
-    rows: 10,
-    cols: 10,
-    board: [
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    ],
-  };
-  expect(Gameboard.placeShip("vertical", 1, 2, 5, testBoard)).toEqual({
-    rows: 10,
-    cols: 10,
-    board: [
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 4, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 5, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    ],
-    ship: {
-      name: "Battleship",
-      length: 5,
-      hitSquares: [1, 2, 3, 4, 5],
-      isAlive: true,
-    },
-  });
-});
-
-test("Gameboard calls 1 Ship class constructor", () => {
+test.skip("Gameboard calls 1 Ship class constructor", () => {
   let testBoard = {
     rows: 5,
     cols: 5,
@@ -86,7 +45,6 @@ test("Gameboard calls 1 Ship class constructor", () => {
     ],
     ships: [
       {
-        name: "Battleship",
         hitSquares: [1, 2, 3],
         hitCount: 0,
         isAlive: true,
@@ -180,7 +138,6 @@ test("Ship receives an attack and declares hit", () => {
     ],
     ships: [
       {
-        name: "Battleship",
         hitSquares: [1, 2, 3],
         hitCount: 0,
         isAlive: true,
@@ -206,7 +163,6 @@ test("Ship receives an attack and declares hit", () => {
     ],
     ships: [
       {
-        name: "Battleship",
         hitSquares: [1, 2, 3],
         hitCount: 1,
         isAlive: true,
@@ -274,7 +230,7 @@ test.skip("Ship receives an attack and declares hit at 3rd position", () => {
 //         .toBe('End Game');
 // });
 
-test("Ship receives an attack and declares miss", () => {
+test.skip("Ship receives an attack and declares miss", () => {
   let testBoard = {
     rows: 5,
     cols: 5,
