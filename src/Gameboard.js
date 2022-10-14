@@ -32,7 +32,6 @@ class Gameboard {
     // xCoord determines row to place ship
     if (orientation == "horizontal") {
       for (let i = 0; i < ship.hitSquares.length; i++) {
-        // Set up helper function to get each x,y coordinate of the ship?
         ship.position[i] = [xCoord, yCoord + i];
         board[xCoord][yCoord + i] = ship.hitSquares[i];
       }
@@ -61,20 +60,29 @@ class Gameboard {
 
     if (hitMarker <= "5" && hitMarker != 0) {
       // let shipIndex = hitMarker;
+
       // Event - Marks the board, replacing a 0 with an 'x'
       Gameboard.board[xCoord][yCoord] = "x";
 
       // Event - Ship.hit(index, hitSquares) will replace value of Gameboard.ships[].hitSquares
-      // Figure out how to choose the specific ship within the array - '0' has to be the ship called
-      // Forcefully using the first ship in shipArray for test case - Create a variable that links to each specific
-      Ship.hitCount(Gameboard.ships[0]);
-      Ship.checkSunk(Gameboard.ships[0]);
+      // Check which ship.position.includes( [xCoord, yCoord] )
+      // Need to be able to use for loop to cycle through 2d array to find the matching [xCoord, yCoord]
+      for (let i = 0; i < Gameboard.ships.length; i++) {
+        for (let j = 0; j < Gameboard.ships[i].position.length; j++) {
+          if (Gameboard.ships[i].position[j] == [xCoord, yCoord]) {
+            console.log('It works!');
+            Ship.hitCount(Gameboard.ships[i]);
+            Ship.checkSunk(Gameboard.ships[i]);
+            return Gameboard;
+          } else return Gameboard;
+        }
+      }
 
       // Event - Check to see if ship is sunk, change isAlive property if sunk
       // if (Ship.checkSunk(Gameboard.ships[0])) {
       //   Gameboard.ships[0].isAlive = false;
       // }
-      return Gameboard;
+      // return Gameboard;
       // return 'hit!';
     } else {
       // Event - Track misses
