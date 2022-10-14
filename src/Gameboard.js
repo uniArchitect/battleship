@@ -26,12 +26,13 @@ class Gameboard {
   // Arguments needed to determine where to place coordinates
   static placeShip = (orientation, xCoord, yCoord, shipLength, Gameboard) => {
     const board = Gameboard.board;
-    const ship = new Ship(shipLength, "Battleship");
+    const ship = new Ship(shipLength);
 
     // call ship.hitSquares (ex. [1,2,3,4,5])
     // xCoord determines row to place ship
     if (orientation == "horizontal") {
       for (let i = 0; i < ship.hitSquares.length; i++) {
+        ship.position[i] = board[xCoord][yCoord + i];
         board[xCoord][yCoord + i] = ship.hitSquares[i];
       }
       // yCoord determines column to place ship

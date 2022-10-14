@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 const Gameboard = require("../Gameboard");
+const Ship = require("../Ship");
 
 test.skip("Gameboard test empty array", () => {
   expect(new Gameboard(10, 10)).toEqual({
@@ -20,7 +21,7 @@ test.skip("Gameboard test empty array", () => {
   });
 });
 
-test.skip("Gameboard calls 1 Ship class constructor", () => {
+test("Gameboard calls 1 Ship class constructor", () => {
   let testBoard = {
     rows: 5,
     cols: 5,
@@ -67,19 +68,16 @@ test.skip("Gameboard calls 4 Ship class constructors", () => {
     ],
     ships: [
       {
-        name: "Battleship",
         hitSquares: [1, 2, 3],
         isAlive: true,
         length: 3,
       },
       {
-        name: "Battleship",
         hitSquares: [1, 2, 3, 4],
         isAlive: true,
         length: 4,
       },
       {
-        name: "Battleship",
         hitSquares: [1, 2, 3],
         isAlive: true,
         length: 3,
@@ -98,26 +96,26 @@ test.skip("Gameboard calls 4 Ship class constructors", () => {
     ],
     ships: [
       {
-        name: "Battleship",
         hitSquares: [1, 2, 3],
+        hitCount: 0,
         isAlive: true,
         length: 3,
       },
       {
-        name: "Battleship",
         hitSquares: [1, 2, 3, 4],
+        hitCount: 0,
         isAlive: true,
         length: 4,
       },
       {
-        name: "Battleship",
         hitSquares: [1, 2, 3],
+        hitCount: 0,
         isAlive: true,
         length: 3,
       },
       {
-        name: "Battleship",
         hitSquares: [1, 2, 3, 4, 5],
+        hitCount: 0,
         isAlive: true,
         length: 5,
       },
@@ -185,14 +183,14 @@ test.skip("Ship receives an attack and declares hit at 3rd position", () => {
     ],
     ships: [
       {
-        name: "Battleship",
         hitSquares: ["x", "x", 3],
+        hitCount: 2,
         isAlive: true,
         length: 3,
       },
       {
-        name: "Battleship",
         hitSquares: [1, 2, 3],
+        hitCount: 0,
         isAlive: true,
         length: 3,
       },
@@ -210,14 +208,15 @@ test.skip("Ship receives an attack and declares hit at 3rd position", () => {
     ],
     ships: [
       {
-        name: "Battleship",
         hitSquares: ["x", "x", 3],
+        hitCount: 2,
         isAlive: true,
         length: 3,
       },
       {
-        name: "Battleship",
+        // hit function is not hitting the intended ship object, but it registers the hit on the board - 10/13/2022
         hitSquares: ["x", 2, 3],
+        hitCount: 1,
         isAlive: true,
         length: 3,
       },
@@ -230,7 +229,7 @@ test.skip("Ship receives an attack and declares hit at 3rd position", () => {
 //         .toBe('End Game');
 // });
 
-test.skip("Ship receives an attack and declares miss", () => {
+test("Ship receives an attack and declares miss", () => {
   let testBoard = {
     rows: 5,
     cols: 5,

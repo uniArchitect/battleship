@@ -10,6 +10,7 @@ class Ship {
     this.hitSquares = [...Array(length).keys()].map((i) => i + 1);
     this.hitCount = 0;
     this.isAlive = true;
+    this.position = [];
   }
 
   // Be able to count number of hits
