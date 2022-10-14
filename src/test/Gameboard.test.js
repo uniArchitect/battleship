@@ -21,7 +21,7 @@ test.skip("Gameboard test empty array", () => {
   });
 });
 
-test("Gameboard calls 1 Ship class constructor", () => {
+test("Gameboard calls 1 Ship class constructor horizontally", () => {
   let testBoard = {
     rows: 5,
     cols: 5,
@@ -50,10 +50,54 @@ test("Gameboard calls 1 Ship class constructor", () => {
         hitCount: 0,
         isAlive: true,
         length: 3,
+        position: [
+            [1,1],
+            [1,2],
+            [1,3],
+        ],
       },
     ],
   });
 });
+
+test("Gameboard calls 1 Ship class constructor vertically", () => {
+    let testBoard = {
+      rows: 5,
+      cols: 5,
+      board: [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+      ],
+      ships: [],
+    };
+    expect(Gameboard.placeShip("vertical", 1, 1, 3, testBoard)).toEqual({
+      rows: 5,
+      cols: 5,
+      board: [
+        [0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0],
+        [0, 2, 0, 0, 0],
+        [0, 3, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+      ],
+      ships: [
+        {
+          hitSquares: [1, 2, 3],
+          hitCount: 0,
+          isAlive: true,
+          length: 3,
+          position: [
+              [1,1],
+              [2,1],
+              [3,1],
+          ],
+        },
+      ],
+    });
+  });
 
 test.skip("Gameboard calls 4 Ship class constructors", () => {
   const testBoard = {

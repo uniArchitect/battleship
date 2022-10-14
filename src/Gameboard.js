@@ -32,12 +32,14 @@ class Gameboard {
     // xCoord determines row to place ship
     if (orientation == "horizontal") {
       for (let i = 0; i < ship.hitSquares.length; i++) {
-        ship.position[i] = board[xCoord][yCoord + i];
+        // Set up helper function to get each x,y coordinate of the ship?
+        ship.position[i] = [xCoord, yCoord + i];
         board[xCoord][yCoord + i] = ship.hitSquares[i];
       }
       // yCoord determines column to place ship
     } else if (orientation == "vertical") {
       for (let i = 0; i < ship.hitSquares.length; i++) {
+        ship.position[i] = [xCoord + i, yCoord];
         board[xCoord + i][yCoord] = ship.hitSquares[i];
       }
     }
