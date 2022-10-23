@@ -174,9 +174,9 @@ test("Ship receives an attack and declares hit", () => {
     board: [
       [0, 0, 0, 0, 0],
       [0, 1, 2, 3, 0],
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 0],
+      [2, 0, 0, 0, 0],
+      [3, 0, 0, 0, 0],
     ],
     ships: [
       {
@@ -190,12 +190,23 @@ test("Ship receives an attack and declares hit", () => {
             [1,3],
         ],
       },
+      {
+        hitSquares: [1, 2, 3],
+        hitCount: 0,
+        isAlive: true,
+        length: 3,
+        position: [
+            [2,0],
+            [3,0],
+            [4,0],
+        ],
+      },
     ],
   };
   expect(
     Gameboard.receiveAttack(
-      1,
       2,
+      0,
       testBoard
     )
   ).toEqual({
@@ -203,21 +214,32 @@ test("Ship receives an attack and declares hit", () => {
     cols: 5,
     board: [
       [0, 0, 0, 0, 0],
-      [0, 1, "x", 3, 0],
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
+      [0, 1, 2, 3, 0],
+      ["x", 0, 0, 0, 0],
+      [2, 0, 0, 0, 0],
+      [3, 0, 0, 0, 0],
     ],
     ships: [
       {
         hitSquares: [1, 2, 3],
-        hitCount: 1,
+        hitCount: 0,
         isAlive: true,
         length: 3,
         position: [
             [1,1],
             [1,2],
             [1,3],
+        ],
+      },
+      {
+        hitSquares: [1, 2, 3],
+        hitCount: 1,
+        isAlive: true,
+        length: 3,
+        position: [
+            [2,0],
+            [3,0],
+            [4,0],
         ],
       },
     ],

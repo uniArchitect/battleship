@@ -68,13 +68,8 @@ class Gameboard {
       // Check which ship.position.includes( [xCoord, yCoord] )
       // Need to be able to use for loop to cycle through 2d array to find the matching [xCoord, yCoord]
 
-      // console.log(Gameboard.ships.length);
-      // console.log(Gameboard.ships[0].position.length);
-      console.log(JSON.stringify(Gameboard.ships[0].position[1]));
-      console.log(JSON.stringify([xCoord, yCoord]));
-
       // Gameboard.ships.length = '1'
-      for (let i = 0; i <= Gameboard.ships[i].position.length; i++) {
+      for (let i = 0; i <= Gameboard.ships.length; i++) {
         // Gameboard.ships[i].position.length = '3' or the length of a ship in "shipArray"
         for (let j = 0; j <= Gameboard.ships[i].position.length; j++) {
           if (JSON.stringify(Gameboard.ships[i].position[j]) == JSON.stringify([xCoord, yCoord])) {
@@ -82,17 +77,9 @@ class Gameboard {
             Ship.hitCount(Gameboard.ships[i]);
             Ship.checkSunk(Gameboard.ships[i]);
             return Gameboard;
-          } else return Gameboard;
+          }
         }
       }
-
-      // Problem is comparing Gameboard.ships[0].position[1] === [xCoord, yCoord] - Solution: both comparisons are objects, needed to convert to string with JSON.stringify
-      // if (JSON.stringify(Gameboard.ships[0].position[1]) == JSON.stringify([xCoord, yCoord])) {
-      //   console.log('It works!');
-      //   Ship.hitCount(Gameboard.ships[0]);
-      //   Ship.checkSunk(Gameboard.ships[0]);
-      //   return Gameboard;
-      // } else return Gameboard;
 
       // Event - Check to see if ship is sunk, change isAlive property if sunk
       // if (Ship.checkSunk(Gameboard.ships[0])) {
