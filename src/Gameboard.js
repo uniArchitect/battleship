@@ -96,10 +96,8 @@ class Gameboard {
   };
 
   // Event - Report end of game
-  static checkEndGame = (ship) => {
-    if (ship.isAlive == false) {
-      return "End Game";
-    } else return;
+  static checkEndGame = (item) => {
+    console.log(item);
   };
 }
 
