@@ -72,8 +72,11 @@ class Gameboard {
       for (let i = 0; i <= Gameboard.ships.length; i++) {
         // Gameboard.ships[i].position.length = '3' or the length of a ship in "shipArray"
         for (let j = 0; j <= Gameboard.ships[i].position.length; j++) {
-          if (JSON.stringify(Gameboard.ships[i].position[j]) == JSON.stringify([xCoord, yCoord])) {
-            console.log('It works!');
+          if (
+            JSON.stringify(Gameboard.ships[i].position[j]) ==
+            JSON.stringify([xCoord, yCoord])
+          ) {
+            console.log("It works!");
             Ship.hitCount(Gameboard.ships[i]);
             Ship.checkSunk(Gameboard.ships[i]);
             return Gameboard;
@@ -96,9 +99,14 @@ class Gameboard {
   };
 
   // Event - Report end of game
-  static checkEndGame = (item) => {
-    console.log(item);
+  static checkEndGame = (shipsArray) => {
+    if (shipsArray[0].isAlive == false && shipsArray[1].isAlive == false) {
+      console.log("End Game");
+      return "End Game";
+    };
   };
+
+  // testBoard.ships.forEach((item) => Gameboard.checkEndGame(item))
 }
 
 module.exports = Gameboard;
