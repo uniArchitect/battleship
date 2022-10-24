@@ -99,14 +99,13 @@ class Gameboard {
   };
 
   // Event - Report end of game
+  // testBoard.ships.forEach((item) => Gameboard.checkEndGame(item))
   static checkEndGame = (shipsArray) => {
     if (shipsArray[0].isAlive == false && shipsArray[1].isAlive == false) {
       console.log("End Game");
       return "End Game";
     };
   };
-
-  // testBoard.ships.forEach((item) => Gameboard.checkEndGame(item))
 }
 
 module.exports = Gameboard;
