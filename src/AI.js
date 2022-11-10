@@ -13,3 +13,4 @@ class Computer {
 
     // computerAttack function
 }
+module.exports = Computer;

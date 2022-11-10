@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 const Gameboard = require("../Gameboard");
 const Ship = require("../Ship");
+const Player = require("../Player");
+const Computer = require("../AI");
 
 test.skip("Gameboard test empty array", () => {
   expect(new Gameboard(10, 10)).toEqual({
@@ -400,4 +402,16 @@ test("Ship receives an attack and declares miss", () => {
       },
     ],
   });
+});
+
+test("Player constructor", () => {
+    expect(new Player('Han')).toEqual({
+        name: "Han"
+    });
+});
+
+test("Player calls a coordinate", () => {
+    expect(new Player('Han')).toEqual({
+        name: "Han"
+    });
 });

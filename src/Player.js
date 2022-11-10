@@ -1,5 +1,5 @@
 class Player {
-    constructor (name) {
+    constructor(name) {
         this.name = name;
     }
 
@@ -7,3 +7,4 @@ class Player {
         return [x,y];
     }
 }
+module.exports = Player;
