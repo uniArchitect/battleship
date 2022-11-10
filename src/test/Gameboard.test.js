@@ -410,8 +410,10 @@ test("Player constructor", () => {
     });
 });
 
-test("Player calls a coordinate", () => {
-    expect(new Player('Han')).toEqual({
-        name: "Han"
-    });
+test("Player calls an attack coordinate", () => {
+    expect(Player.attackMove(0,1)).toStrictEqual([0,1]);
+});
+
+test("Computer calls an attack coordinate", () => {
+    expect(Computer.computerAttackMove(1,2)).toStrictEqual([1,2]);
 });
