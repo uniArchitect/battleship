@@ -412,9 +412,9 @@ test("Player constructor", () => {
 });
 
 test("Player calls an attack coordinate", () => {
-    expect(Player.attackMove(0,1)).toStrictEqual([0,1]);
+    expect(Player.playerAttackMove(0,1)).toStrictEqual([0,1]);
 });
 
 test.skip("Computer calls an attack coordinate", () => {
-    expect(Computer.computerAttackMove()).toBe([1,2]);
+    expect(Player.computerAttackMove()).toBe([1,2]);
 });
