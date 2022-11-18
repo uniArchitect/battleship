@@ -406,7 +406,8 @@ test("Ship receives an attack and declares miss", () => {
 
 test("Player constructor", () => {
     expect(new Player('Han')).toEqual({
-        name: "Han"
+        name: "Han",
+        turn: false
     });
 });
 
