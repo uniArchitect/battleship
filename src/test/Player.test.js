@@ -14,3 +14,12 @@ test("Player calls an attack coordinate", () => {
 test.skip("Computer calls an attack coordinate", () => {
     expect(Player.computerAttackMove()).toBe([1,2]);
 });
+
+test("Player calls an attack coordinate", () => {
+    // In Progress
+    let newPlayer = {
+        name: "Han",
+        turn: true,
+    }
+    expect(Player.playerMove( 0, 1, newPlayer )).toEqual([0,1]);
+});

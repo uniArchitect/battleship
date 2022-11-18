@@ -23,16 +23,16 @@ class Player {
     }
 
     // Reference Tic Tac Toe for game turn logic
-    static playerMove = (x,y) => {
-        const playerTurn = this.turn ? true : false;
-
+    static playerMove = ( x, y, player ) => {
+        const playerTurn = player.turn ? true : false;
+        
         if(playerTurn == true) {
             // find way to grab input to use as argument in attackMove
-            this.attackMove(x,y);
-            this.swapTurns;
+            Player.attackMove(x,y);
+            Player.swapTurns();
         } else if (playerTurn == false) {
             this.computerAttackMove();
-            this.swapTurns;
+            this.swapTurns();
         }
     }
 }
