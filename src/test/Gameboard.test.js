@@ -349,9 +349,7 @@ test("Check end game for all ships are sunk", () => {
       },
     ],
   };
-  expect(Gameboard.checkEndGame(testBoard.ships)).toBe(
-    "End Game"
-  );
+  expect(Gameboard.checkEndGame(testBoard.ships)).toBe("End Game");
 });
 
 // test("Ship receives an attack and declares ship is sunk", () => {

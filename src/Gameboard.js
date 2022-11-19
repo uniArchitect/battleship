@@ -104,7 +104,7 @@ class Gameboard {
     if (shipsArray[0].isAlive == false && shipsArray[1].isAlive == false) {
       console.log("End Game");
       return "End Game";
-    };
+    }
   };
 }
 
