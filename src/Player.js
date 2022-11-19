@@ -36,6 +36,7 @@ class Player {
       Player.swapTurns(player);
 
       // return { attackCoordinate: playerAttackCoord, playerTurn: testTurn }; -> playerTurn is only for testing
+      // return playerAttackCoord may need to be separated into x and y variables?
       return playerAttackCoord;
     } else if (playerTurn == false) {
       let computerAttackCoord = Player.computerAttackMove();
