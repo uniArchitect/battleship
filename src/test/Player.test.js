@@ -15,7 +15,7 @@ test.skip("Computer calls an attack coordinate", () => {
     expect(Player.computerAttackMove()).toBe([1,2]);
 });
 
-test("Player calls an attack coordinate", () => {
+test.skip("Player calls an attack coordinate", () => {
     // In Progress
     let newPlayer = {
         name: "Han",

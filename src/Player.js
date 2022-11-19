@@ -32,10 +32,13 @@ class Player {
             let playerAttackCoord = Player.playerAttackMove(x,y);
             let testTurn = Player.swapTurns(player);
 
-            return { attackCoordinate: playerAttackCoord, playerTurn: testTurn };
+            // return { attackCoordinate: playerAttackCoord, playerTurn: testTurn }; -> playerTurn is only for testing
+            return playerAttackCoord;
         } else if (playerTurn == false) {
-            this.computerAttackMove();
-            this.swapTurns();
+            let computerAttackCoord = Player.computerAttackMove();
+            Player.swapTurns(player);
+
+            return computerAttackCoord;
         }
     }
 }
