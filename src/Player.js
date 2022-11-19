@@ -28,8 +28,10 @@ class Player {
         
         if(playerTurn == true) {
             // find way to grab input to use as argument in attackMove
-            Player.attackMove(x,y);
+            let playerAttackCoord = Player.playerAttackMove(x,y);
             Player.swapTurns();
+
+            return playerAttackCoord;
         } else if (playerTurn == false) {
             this.computerAttackMove();
             this.swapTurns();
