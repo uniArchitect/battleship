@@ -18,8 +18,9 @@ class Player {
         return [x,y];
     }
 
-    static swapTurns = () => {
-        this.turn = !this.turn;
+    static swapTurns = (player) => {
+        player.turn = !player.turn;
+        return player.turn;
     }
 
     // Reference Tic Tac Toe for game turn logic
@@ -29,9 +30,9 @@ class Player {
         if(playerTurn == true) {
             // find way to grab input to use as argument in attackMove
             let playerAttackCoord = Player.playerAttackMove(x,y);
-            Player.swapTurns();
+            let testTurn = Player.swapTurns(player);
 
-            return playerAttackCoord;
+            return { attackCoordinate: playerAttackCoord, playerTurn: testTurn };
         } else if (playerTurn == false) {
             this.computerAttackMove();
             this.swapTurns();

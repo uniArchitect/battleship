@@ -21,5 +21,8 @@ test("Player calls an attack coordinate", () => {
         name: "Han",
         turn: true,
     }
-    expect(Player.playerMove( 0, 1, newPlayer )).toStrictEqual([0,1]);
+    expect(Player.playerMove( 0, 1, newPlayer )).toEqual({
+        attackCoordinate: [0,1],
+        playerTurn: false,
+    });
 });
