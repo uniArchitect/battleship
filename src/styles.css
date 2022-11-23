@@ -1,0 +1,11 @@
+body,
+html {
+  height: 95%;
+  /* margin: 8px;
+    margin-left: 72px;
+    margin-right: 72px; */
+  /* background-color: #f8fafc; */
+  background-color: #222629;
+  font-family: "Montserrat", sans-serif;
+  color: #f8fafc;
+}
