@@ -1,11 +1,30 @@
 body,
 html {
-  height: 95%;
-  /* margin: 8px;
-    margin-left: 72px;
-    margin-right: 72px; */
-  /* background-color: #f8fafc; */
-  background-color: #222629;
+  /* background-color: #222629;
   font-family: "Montserrat", sans-serif;
-  color: #f8fafc;
+  color: #f8fafc; */
+}
+
+.Player-Display-Container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%,-50%);    
+}
+
+.Player-1-Container, .Player-2-Container {
+    display: grid;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    gap: 0.5em;
+    height: 25em;
+    width: 25em;
+    border: black;
+    /* box-shadow: 5px 5px lightgrey; */
 }
