@@ -8,20 +8,26 @@ html {
 .Player-Display-Container {
     display: flex;
     justify-content: center;
-    position: absolute;
+    height: 10em;
+    /* position: absolute;
     top: 18%;
     left: 50%;
-    transform: translate(-50%,-50%);    
+    transform: translate(-50%,-50%);     */
+}
+
+.Gameboard-Container {
+    display: flex;
+    justify-content: center;
 }
 
 .Player-1-Container, .Player-2-Container {
     display: grid;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
-    position: absolute;
+    /* position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%); */
     gap: 0.5em;
     height: 25em;
     width: 25em;
