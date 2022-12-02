@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-const Gameboard = require("../Gameboard");
-const Ship = require("../Ship");
+import Gameboard from "../Gameboard";
+import Ship from "../Ship";
 
 test.skip("Gameboard test empty array", () => {
   expect(new Gameboard(10, 10)).toEqual({

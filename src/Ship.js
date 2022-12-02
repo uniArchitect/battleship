@@ -26,4 +26,4 @@ class Ship {
     } else return;
   }
 }
-module.exports = Ship;
+export default Ship;

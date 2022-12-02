@@ -1,4 +1,4 @@
-const Player = require("../Player");
+import Player from "../Player";
 
 test("Player constructor", () => {
   expect(new Player("Han")).toEqual({

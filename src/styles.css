@@ -1,54 +1,56 @@
 body,
 html {
-    margin: 5em;
+  margin: 5em;
   /* background-color: #222629;
   font-family: "Montserrat", sans-serif;
   color: #f8fafc; */
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5em;
 }
 
 .Player-Display-Container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10em;
-    gap: 5em;
-    /* position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10em;
+  gap: 5em;
+  /* position: absolute;
     top: 18%;
     left: 50%;
     transform: translate(-50%,-50%);     */
 }
 
 .Gameboard-Container {
-    display: flex;
-    justify-content: center;
-    gap: 5em;
+  display: flex;
+  justify-content: center;
+  gap: 5em;
 }
 
-.Player-1, .Player-2 {
-    height: 5em;
-    width: 20em;
-    border: .15em solid black;
+.Player-1,
+.Player-2 {
+  height: 5em;
+  width: 20em;
+  border: 0.15em solid black;
 }
 
-.Player-1-Container, .Player-2-Container {
-    display: grid;
-    grid-template-rows: repeat(var(--grid-rows), 1fr);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
-    /* position: absolute;
+.Player-1-Container,
+.Player-2-Container {
+  display: grid;
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  /* position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%); */
-    gap: 0.5em;
-    height: 25em;
-    width: 25em;
-    border: .15em solid black;
-    /* box-shadow: 5px 5px lightgrey; */
+  gap: 0.5em;
+  height: 25em;
+  width: 25em;
+  border: 0.15em solid black;
+  /* box-shadow: 5px 5px lightgrey; */
 }

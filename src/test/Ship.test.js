@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const Ship = require("../Ship");
+import Ship from "../Ship";
 
 test("Ship class creates a new object", () => {
   expect(new Ship(4, "Battleship")).toEqual({
