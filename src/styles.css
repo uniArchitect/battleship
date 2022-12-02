@@ -28,8 +28,13 @@ html {
     align-items: center;
     /* border: 1px solid white; */
     border-radius: 0.25em;
-    background: #ffc3a0;
+    background: #0E5E6F;
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
+}
+
+.board-square:hover {
+    background-color: #FFEFD6;
+    transition: .3s;
 }
 
 .container {
@@ -62,7 +67,9 @@ html {
 .Player-2 {
   height: 5em;
   width: 20em;
-  border: 0.15em solid black;
+  border-radius: 0.25em;
+background: #0E5E6F;
+box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
 }
 
 .Player-1-Container,
