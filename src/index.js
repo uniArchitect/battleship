@@ -33,9 +33,26 @@ const createBoard = (board, rows, cols) => {
 createBoard(playerBoard, gameBoard.rows, gameBoard.cols);
 createBoard(computerBoard, gameBoard.rows, gameBoard.cols);
 
-// Render Battleship Attack on Click
 const boardSquare = document.querySelectorAll(".board-square");
 
+// Assign Player ship coordinates - Draft function
+const assignShip = (e) => {
+    // X Coordinate - Convert to Number
+    let x = Number(e.target.id[0]);
+    // Y Coordinate - Convert to Number
+    let y = Number(e.target.id[2]);
+    console.log(y);
+    // Need external input for ship length argument
+    // Need external input for vertical and horizontal argument
+    Gameboard.placeShip("horizontal", x, y, 5, gameBoard);
+    console.log(gameBoard);
+}
+
+boardSquare.forEach((boardSquare) => {
+    boardSquare.addEventListener("click", assignShip);
+  });
+
+// Render Battleship Attack on Click
 // Mark each board square
 const changeCoordinate = (element, marker) => {
   element.setAttribute("id", `${marker}`);
@@ -64,6 +81,7 @@ const attackCoordinate = (e) => {
     `;
 
   // Change game square
+  // Incorporate if statement to determine if hit or miss will be used based on secondary class (assigned ship coordinates) of the board square
   changeCoordinate(e.target, miss);
 };
 
