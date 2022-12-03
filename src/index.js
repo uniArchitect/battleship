@@ -34,7 +34,13 @@ createBoard(playerBoard, gameBoard.rows, gameBoard.cols);
 createBoard(computerBoard, gameBoard.rows, gameBoard.cols);
 
 // Render Battleship Attack on Click
-attackCoordinate = (e) => {
+const boardSquare = document.querySelectorAll('.board-square');
+
+// Mark each board square
+const attackCoordinate = (e) => {
+    
+    console.log(e.target);
+    
     // Define miss marker
     const miss = document.createElement('div');
     miss.classList.add('miss')
@@ -52,4 +58,18 @@ attackCoordinate = (e) => {
         <path fill="white" d="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
     </svg>
     `; 
-}
+
+    changeCoordinate = (element, marker) => {
+        console.log(element);
+        element.setAttribute('id', `${marker}`);
+        element.appendChild(marker);
+    }
+
+    // Change game square
+    changeCoordinate(e.target, marker);
+};
+
+// Add event listener for each board square
+boardSquare.forEach(boardSquare => {
+    boardSquare.addEventListener('click', attackCoordinate, {once:true});
+})
