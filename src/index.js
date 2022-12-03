@@ -18,11 +18,26 @@ computerContainer.appendChild(computerBoard).className = "computer-board";
 const createBoard = (board, rows, cols) => {
     board.style.setProperty("--grid-rows", rows);
     board.style.setProperty("--grid-cols", cols);
-  for (let i = 0; i < rows * cols; i++) {
-    let playerSquare = document.createElement("div");
-    playerSquare.setAttribute("id", "board-square");
-    board.appendChild(playerSquare).className = "board-square";
-  }
+  
+    // Create new for loop using Gameboard class
+    // First row is first array, second row is second array, etc.
+    for (let i = 0; i < rows; i++) {
+        // i = 10 rows
+        board[i] = [];
+        for (let j = 0; j < cols; j++) {
+            // j = 10 columns
+          board[i][j] = 0;
+            let playerSquare = document.createElement("div");
+            playerSquare.setAttribute("id", `${i},${j}`);
+            board.appendChild(playerSquare).className = "board-square";   
+        }
+      }
+
+//     for (let i = 0; i < rows * cols; i++) {
+//     let playerSquare = document.createElement("div");
+//     playerSquare.setAttribute("id", "board-square");
+//     board.appendChild(playerSquare).className = "board-square";
+//   }
 };
 
 createBoard(playerBoard, gameBoard.rows, gameBoard.cols);
