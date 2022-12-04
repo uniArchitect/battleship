@@ -27,7 +27,7 @@ const createBoard = (board, rows, cols) => {
       board[i][j] = 0;
       let playerSquare = document.createElement("div");
       playerSquare.setAttribute("id", `[${i},${j}]`);
-      board.appendChild(playerSquare).className = "board-square";
+      board.appendChild(playerSquare).className = `${board.className}-square`;
     }
   }
 
@@ -53,7 +53,6 @@ const draftPlayerAssignShip = (board) => {
 
     return board;
 };
-
 const draftComputerAssignShip = (board) => {
   Gameboard.placeShip("horizontal", 2, 1, 5, board);
   Gameboard.placeShip("vertical", 0, 7, 4, board);
@@ -92,7 +91,12 @@ const renderShips = (board) => {
   for (let i = 0; i < board.ships.length; i++) {
     for (let j = 0; j < board.ships[i].position.length; j++) {
       let occupiedSquare = document.getElementById(`[${board.ships[i].position[j]}]`)
-      occupiedSquare.style.background = '#E23E57';        
+        if (occupiedSquare.className == 'player-board-square') {
+          // START WORK FROM HERE - 12/04/2022
+          occupiedSquare.style.background = '#E23E57';  
+        } else if (occupiedSquare.className == 'computer-board-square') {
+          occupiedSquare.style.background = '#E23E57';
+        }     
     }
   }
 }

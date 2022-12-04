@@ -23,7 +23,8 @@ html {
   /* box-shadow: 5px 5px lightgray; */
 }
 
-.board-square {
+.player-board-square,
+.computer-board-square {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +34,8 @@ html {
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
 }
 
-.board-square:hover {
+.player-board-square:hover,
+.computer-board-square:hover {
   background-color: #E23E57;
   transition: 0.3s;
 }
