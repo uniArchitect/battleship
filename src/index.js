@@ -24,7 +24,7 @@ const createBoard = (board, rows, cols) => {
     for (let j = 0; j < cols; j++) {
       board[i][j] = 0;
       let playerSquare = document.createElement("div");
-      playerSquare.setAttribute("id", `${i},${j}`);
+      playerSquare.setAttribute("id", `[${i},${j}]`);
       board.appendChild(playerSquare).className = "board-square";
     }
   }
@@ -44,24 +44,34 @@ const draftAssignShip = () => {
     Gameboard.placeShip("vertical", 5, 8, 2, gameBoard);    
 
     console.log(gameBoard);
+    console.log(gameBoard.ships[0].position[0]);
+    console.log(`[${gameBoard.ships[0].position[0]}]`);
+
+    // Set up template to select each ship position - Set up for loop to cycle through all ships and ships positions
+    let testSquare = document.getElementById(`[${gameBoard.ships[0].position[0]}]`)
+    testSquare.innerHTML = 'S';
+
+    return gameBoard;
 };
 
 draftAssignShip();
 
 const assignShip = (e) => {
     // X Coordinate - Convert to Number
-    let x = Number(e.target.id[0]);
+    let x = Number(e.target.id[1]);
     // Y Coordinate - Convert to Number
-    let y = Number(e.target.id[2]);
+    let y = Number(e.target.id[4]);
     // Need external input for ship length argument
     // Need external input for vertical and horizontal argument
     Gameboard.placeShip("horizontal", x, y, 5, gameBoard);
     console.log(gameBoard);
 };
 
-boardSquare.forEach((boardSquare) => {
-    boardSquare.addEventListener("click", assignShip);
-  });
+// boardSquare.forEach((boardSquare) => {
+//     boardSquare.addEventListener("click", assignShip);
+//   });
+
+// Render Battleship positions
 
 // Render Battleship Attack on Click
 // Mark each board square
