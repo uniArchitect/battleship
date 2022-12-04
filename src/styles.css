@@ -11,8 +11,8 @@ html {
   --grid-rows: 1;
 }
 
-.player-board,
-.computer-board {
+.player,
+.computer {
   display: grid;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
@@ -23,8 +23,8 @@ html {
   /* box-shadow: 5px 5px lightgray; */
 }
 
-.player-board-square,
-.computer-board-square {
+.player-square,
+.computer-square {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,8 +34,8 @@ html {
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
 }
 
-.player-board-square:hover,
-.computer-board-square:hover {
+.player-square:hover,
+.computer-square:hover {
   background-color: #E23E57;
   transition: 0.3s;
 }
@@ -75,8 +75,8 @@ html {
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
 }
 
-.Player-1-Container,
-.Player-2-Container {
+.Player-Container,
+.Computer-Container {
   display: grid;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);

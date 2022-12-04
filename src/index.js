@@ -4,8 +4,8 @@ import Ship from "./Ship";
 import Gameboard from "./Gameboard";
 import Player from "./Player";
 
-const playerContainer = document.querySelector(".Player-1-Container");
-const computerContainer = document.querySelector(".Player-2-Container");
+const playerContainer = document.querySelector(".Player-Container");
+const computerContainer = document.querySelector(".Computer-Container");
 
 // Battleship UI Set Up
 // In progress function to create battleship gameboard
@@ -13,9 +13,9 @@ const gameBoard = new Gameboard(10, 10);
 const computerGameBoard = new Gameboard(10, 10);
 
 const playerBoard = document.createElement("div");
-playerContainer.appendChild(playerBoard).className = "player-board";
+playerContainer.appendChild(playerBoard).className = "player";
 const computerBoard = document.createElement("div");
-computerContainer.appendChild(computerBoard).className = "computer-board";
+computerContainer.appendChild(computerBoard).className = "computer";
 
 const createBoard = (board, rows, cols) => {
   board.style.setProperty("--grid-rows", rows);
@@ -26,7 +26,7 @@ const createBoard = (board, rows, cols) => {
     for (let j = 0; j < cols; j++) {
       board[i][j] = 0;
       let playerSquare = document.createElement("div");
-      playerSquare.setAttribute("id", `[${i},${j}]`);
+      playerSquare.setAttribute("id", `${board.className}-[${i},${j}]`);
       board.appendChild(playerSquare).className = `${board.className}-square`;
     }
   }
@@ -37,7 +37,7 @@ const createBoard = (board, rows, cols) => {
 createBoard(playerBoard, gameBoard.rows, gameBoard.cols);
 createBoard(computerBoard, computerGameBoard.rows, computerGameBoard.cols);
 
-const boardSquare = document.querySelectorAll(".board-square");
+const boardSquare = document.querySelectorAll(".computer-square");
 
 // Assign Player ship coordinates - Draft function
 const draftPlayerAssignShip = (board) => {
@@ -90,11 +90,14 @@ const renderShips = (board) => {
   // Set up template to select each ship position - Set up for loop to cycle through all ships and ships positions
   for (let i = 0; i < board.ships.length; i++) {
     for (let j = 0; j < board.ships[i].position.length; j++) {
-      let occupiedSquare = document.getElementById(`[${board.ships[i].position[j]}]`)
-        if (occupiedSquare.className == 'player-board-square') {
-          // START WORK FROM HERE - 12/04/2022
+      let occupiedSquare = document.getElementById(`player-[${board.ships[i].position[j]}]`)
+        // Find ship coordinates in 'player-board-square' and highlights the coordinates
+      if (occupiedSquare.className == 'player-square') {
           occupiedSquare.style.background = '#E23E57';  
-        } else if (occupiedSquare.className == 'computer-board-square') {
+        // Find ship coordinates in 'computer-board-square' and highlights the coordinates
+        // PROBLEM - Coordinates in 'player-board-square' grid is already filled, so computer grid cannot be highlighted
+        // Create unique ID or Class for player and computer grids
+        } else if (occupiedSquare.className == 'computer-square') {
           occupiedSquare.style.background = '#E23E57';
         }     
     }
