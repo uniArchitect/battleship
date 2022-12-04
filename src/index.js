@@ -40,7 +40,7 @@ createBoard(computerBoard, computerGameBoard.rows, computerGameBoard.cols);
 const boardSquare = document.querySelectorAll(".board-square");
 
 // Assign Player ship coordinates - Draft function
-const draftAssignShip = (board) => {
+const draftPlayerAssignShip = (board) => {
     Gameboard.placeShip("horizontal", 3, 2, 5, board);
     Gameboard.placeShip("vertical", 1, 8, 4, board);
     Gameboard.placeShip("horizontal", 6, 3, 3, board);
@@ -54,8 +54,22 @@ const draftAssignShip = (board) => {
     return board;
 };
 
-draftAssignShip(gameBoard);
-draftAssignShip(computerGameBoard);
+const draftComputerAssignShip = (board) => {
+  Gameboard.placeShip("horizontal", 2, 1, 5, board);
+  Gameboard.placeShip("vertical", 0, 7, 4, board);
+  Gameboard.placeShip("horizontal", 5, 4, 3, board);
+  Gameboard.placeShip("horizontal", 5, 4, 3, board);
+  Gameboard.placeShip("vertical", 4, 0, 2, board);    
+
+  console.log(board);
+  console.log(board.ships[0].position[0]);
+  console.log(`[${board.ships[0].position[0]}]`);
+
+  return board;
+};
+
+draftPlayerAssignShip(gameBoard);
+draftComputerAssignShip(computerGameBoard);
 
 const assignShip = (e) => {
     // X Coordinate - Convert to Number
