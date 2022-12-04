@@ -10,6 +10,8 @@ const computerContainer = document.querySelector(".Player-2-Container");
 // Battleship UI Set Up
 // In progress function to create battleship gameboard
 const gameBoard = new Gameboard(10, 10);
+const computerGameBoard = new Gameboard(10, 10);
+
 const playerBoard = document.createElement("div");
 playerContainer.appendChild(playerBoard).className = "player-board";
 const computerBoard = document.createElement("div");
@@ -28,29 +30,32 @@ const createBoard = (board, rows, cols) => {
       board.appendChild(playerSquare).className = "board-square";
     }
   }
+
+  return board;
 };
 
 createBoard(playerBoard, gameBoard.rows, gameBoard.cols);
-createBoard(computerBoard, gameBoard.rows, gameBoard.cols);
+createBoard(computerBoard, computerGameBoard.rows, computerGameBoard.cols);
 
 const boardSquare = document.querySelectorAll(".board-square");
 
 // Assign Player ship coordinates - Draft function
-const draftAssignShip = () => {
-    Gameboard.placeShip("horizontal", 3, 2, 5, gameBoard);
-    Gameboard.placeShip("vertical", 1, 8, 4, gameBoard);
-    Gameboard.placeShip("horizontal", 6, 3, 3, gameBoard);
-    Gameboard.placeShip("horizontal", 8, 3, 3, gameBoard);
-    Gameboard.placeShip("vertical", 5, 1, 2, gameBoard);    
+const draftAssignShip = (board) => {
+    Gameboard.placeShip("horizontal", 3, 2, 5, board);
+    Gameboard.placeShip("vertical", 1, 8, 4, board);
+    Gameboard.placeShip("horizontal", 6, 3, 3, board);
+    Gameboard.placeShip("horizontal", 8, 3, 3, board);
+    Gameboard.placeShip("vertical", 5, 1, 2, board);    
 
-    console.log(gameBoard);
-    console.log(gameBoard.ships[0].position[0]);
-    console.log(`[${gameBoard.ships[0].position[0]}]`);
+    console.log(board);
+    console.log(board.ships[0].position[0]);
+    console.log(`[${board.ships[0].position[0]}]`);
 
-    return gameBoard;
+    return board;
 };
 
-draftAssignShip();
+draftAssignShip(gameBoard);
+draftAssignShip(computerGameBoard);
 
 const assignShip = (e) => {
     // X Coordinate - Convert to Number
@@ -68,17 +73,18 @@ const assignShip = (e) => {
 //   });
 
 // Render Battleship positions
-const renderShips = () => {
+const renderShips = (board) => {
   // Set up template to select each ship position - Set up for loop to cycle through all ships and ships positions
-  for (let i = 0; i < gameBoard.ships.length; i++) {
-    for (let j = 0; j < gameBoard.ships[i].position.length; j++) {
-      let testSquare = document.getElementById(`[${gameBoard.ships[i].position[j]}]`)
-      testSquare.style.background = '#E23E57';        
+  for (let i = 0; i < board.ships.length; i++) {
+    for (let j = 0; j < board.ships[i].position.length; j++) {
+      let occupiedSquare = document.getElementById(`[${board.ships[i].position[j]}]`)
+      occupiedSquare.style.background = '#E23E57';        
     }
   }
 }
 
-renderShips();
+renderShips(gameBoard);
+renderShips(computerGameBoard);
 
 // Render Battleship Attack on Click
 // Mark each board square
