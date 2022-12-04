@@ -37,19 +37,23 @@ const boardSquare = document.querySelectorAll(".board-square");
 
 // Assign Player ship coordinates - Draft function
 const draftAssignShip = () => {
-    Gameboard.placeShip("horizontal", 1, 2, 5, gameBoard);
+    Gameboard.placeShip("horizontal", 3, 2, 5, gameBoard);
     Gameboard.placeShip("vertical", 1, 8, 4, gameBoard);
     Gameboard.placeShip("horizontal", 6, 3, 3, gameBoard);
     Gameboard.placeShip("horizontal", 8, 3, 3, gameBoard);
-    Gameboard.placeShip("vertical", 5, 8, 2, gameBoard);    
+    Gameboard.placeShip("vertical", 5, 1, 2, gameBoard);    
 
     console.log(gameBoard);
     console.log(gameBoard.ships[0].position[0]);
     console.log(`[${gameBoard.ships[0].position[0]}]`);
 
     // Set up template to select each ship position - Set up for loop to cycle through all ships and ships positions
-    let testSquare = document.getElementById(`[${gameBoard.ships[0].position[0]}]`)
-    testSquare.innerHTML = 'S';
+    for (let i = 0; i < gameBoard.ships.length; i++) {
+      for (let j = 0; j < gameBoard.ships[i].position.length; j++) {
+        let testSquare = document.getElementById(`[${gameBoard.ships[i].position[j]}]`)
+        testSquare.innerHTML = 'S';        
+      }
+    }
 
     return gameBoard;
 };
