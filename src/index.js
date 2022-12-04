@@ -36,17 +36,28 @@ createBoard(computerBoard, gameBoard.rows, gameBoard.cols);
 const boardSquare = document.querySelectorAll(".board-square");
 
 // Assign Player ship coordinates - Draft function
+const draftAssignShip = () => {
+    Gameboard.placeShip("horizontal", 1, 2, 5, gameBoard);
+    Gameboard.placeShip("vertical", 1, 8, 4, gameBoard);
+    Gameboard.placeShip("horizontal", 6, 3, 3, gameBoard);
+    Gameboard.placeShip("horizontal", 8, 3, 3, gameBoard);
+    Gameboard.placeShip("vertical", 5, 8, 2, gameBoard);    
+
+    console.log(gameBoard);
+};
+
+draftAssignShip();
+
 const assignShip = (e) => {
     // X Coordinate - Convert to Number
     let x = Number(e.target.id[0]);
     // Y Coordinate - Convert to Number
     let y = Number(e.target.id[2]);
-    console.log(y);
     // Need external input for ship length argument
     // Need external input for vertical and horizontal argument
     Gameboard.placeShip("horizontal", x, y, 5, gameBoard);
     console.log(gameBoard);
-}
+};
 
 boardSquare.forEach((boardSquare) => {
     boardSquare.addEventListener("click", assignShip);
