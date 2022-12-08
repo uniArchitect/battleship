@@ -57,7 +57,7 @@ const draftComputerAssignShip = (board) => {
   Gameboard.placeShip("horizontal", 2, 1, 5, board);
   Gameboard.placeShip("vertical", 0, 7, 4, board);
   Gameboard.placeShip("horizontal", 5, 4, 3, board);
-  Gameboard.placeShip("horizontal", 5, 4, 3, board);
+  Gameboard.placeShip("horizontal", 7, 4, 3, board);
   Gameboard.placeShip("vertical", 4, 0, 2, board);    
 
   console.log(board);
@@ -86,16 +86,15 @@ const assignShip = (e) => {
 //   });
 
 // Render Battleship positions
-const renderShips = (board) => {
+const renderShips = (board, playerBoard) => {
   // Set up template to select each ship position - Set up for loop to cycle through all ships and ships positions
   for (let i = 0; i < board.ships.length; i++) {
     for (let j = 0; j < board.ships[i].position.length; j++) {
-      let occupiedSquare = document.getElementById(`player-[${board.ships[i].position[j]}]`)
+      let occupiedSquare = document.getElementById(`${playerBoard.className}-[${board.ships[i].position[j]}]`)
         // Find ship coordinates in 'player-board-square' and highlights the coordinates
       if (occupiedSquare.className == 'player-square') {
           occupiedSquare.style.background = '#E23E57';  
         // Find ship coordinates in 'computer-board-square' and highlights the coordinates
-        // PROBLEM - Coordinates in 'player-board-square' grid is already filled, so computer grid cannot be highlighted
         // Create unique ID or Class for player and computer grids
         } else if (occupiedSquare.className == 'computer-square') {
           occupiedSquare.style.background = '#E23E57';
@@ -104,8 +103,8 @@ const renderShips = (board) => {
   }
 }
 
-renderShips(gameBoard);
-renderShips(computerGameBoard);
+renderShips(gameBoard, playerBoard);
+renderShips(computerGameBoard, computerBoard);
 
 // Render Battleship Attack on Click
 // Mark each board square
