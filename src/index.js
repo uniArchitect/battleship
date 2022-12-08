@@ -112,10 +112,10 @@ renderShips(computerGameBoard, computerBoard);
 
 // Render Battleship Attack on Click
 // Mark each board square
-const changeCoordinate = (element, marker) => {
-  element.setAttribute("id", `${marker}`);
-  element.appendChild(marker);
-};
+// const changeCoordinate = (element, marker) => {
+//   element.setAttribute("id", `${marker}`);
+//   element.appendChild(marker);
+// };
 
 const attackCoordinate = (e) => {
   console.log(e.target);
@@ -140,7 +140,11 @@ const attackCoordinate = (e) => {
 
   // Change game square
   // Incorporate if statement to determine if hit or miss will be used based on secondary class (assigned ship coordinates) of the board square
-  changeCoordinate(e.target, miss);
+  if (e.target.classList.contains('occupied-target')) {
+    e.target.appendChild(hit);
+  } else {
+    e.target.appendChild(miss);
+  };
 };
 
 // Add event listener for each board square
