@@ -94,11 +94,15 @@ const renderShips = (board, playerBoard) => {
         // Find ship coordinates in 'player-board-square' and highlights the coordinates
       if (occupiedSquare.className == 'player-square') {
           occupiedSquare.style.background = '#E23E57';  
+        } else if (occupiedSquare.className == 'computer-square') {
+          occupiedSquare.classList.add('occupied-target');
+        }   
         // Find ship coordinates in 'computer-board-square' and highlights the coordinates
         // Create unique ID or Class for player and computer grids
-        } else if (occupiedSquare.className == 'computer-square') {
-          occupiedSquare.style.background = '#E23E57';
-        }     
+        // Computer grid does not need to highlight enemy ships UNTIL they are hit
+        // else if (occupiedSquare.className == 'computer-square') {
+        //   occupiedSquare.style.background = '#E23E57';
+        // }     
     }
   }
 }

@@ -34,7 +34,7 @@ html {
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
 }
 
-.player-square:hover,
+/* .player-square:hover, */
 .computer-square:hover {
   background-color: #E23E57;
   transition: 0.3s;
