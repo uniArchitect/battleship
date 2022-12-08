@@ -117,8 +117,12 @@ renderShips(computerGameBoard, computerBoard);
 //   element.appendChild(marker);
 // };
 
+// Incorporate Gameboard.receiveAttack() function
 const attackCoordinate = (e) => {
   console.log(e.target);
+
+  // 12072022 - splice e.target X and Y coordinates to input into Gameboard.receiveAttack
+  // Gameboard.receiveAttack(e.target, e.target, computerBoard);
 
   // Define miss marker
   const miss = document.createElement("div");
