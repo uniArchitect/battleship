@@ -8,7 +8,6 @@ const playerContainer = document.querySelector(".Player-Container");
 const computerContainer = document.querySelector(".Computer-Container");
 
 // Battleship UI Set Up
-// In progress function to create battleship gameboard
 const gameBoard = new Gameboard(10, 10);
 const computerGameBoard = new Gameboard(10, 10);
 
@@ -71,14 +70,17 @@ draftPlayerAssignShip(gameBoard);
 draftComputerAssignShip(computerGameBoard);
 
 const assignShip = (e) => {
-    // X Coordinate - Convert to Number
-    let x = Number(e.target.id[1]);
-    // Y Coordinate - Convert to Number
-    let y = Number(e.target.id[3]);
-    // Need external input for ship length argument
-    // Need external input for vertical and horizontal argument
-    Gameboard.placeShip("horizontal", x, y, 5, gameBoard);
-    console.log(gameBoard);
+  let idTarget = e.target.id;
+  // X Coordinate - Convert to Number
+  const x = Number(idTarget.charAt(idTarget.length - 4));
+  // Y Coordinate - Convert to Number
+  const y = Number(idTarget.charAt(idTarget.length - 2));  
+  // Need external input for ship length argument
+
+  // Need external input for vertical and horizontal argument
+
+  Gameboard.placeShip("horizontal", x, y, 5, gameBoard);
+  console.log(gameBoard);
 };
 
 // boardSquare.forEach((boardSquare) => {
@@ -111,12 +113,6 @@ renderShips(gameBoard, playerBoard);
 renderShips(computerGameBoard, computerBoard);
 
 // Render Battleship Attack on Click
-// Mark each board square
-// const changeCoordinate = (element, marker) => {
-//   element.setAttribute("id", `${marker}`);
-//   element.appendChild(marker);
-// };
-
 // Incorporate Gameboard.receiveAttack() function
 const attackCoordinate = (e) => {
   console.log(e.target.id);

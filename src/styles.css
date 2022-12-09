@@ -30,13 +30,13 @@ html {
   align-items: center;
   /* border: 1px solid white; */
   border-radius: 0.25em;
-  background: #88304E;
+  background: #88304e;
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
 }
 
-/* .player-square:hover, */
+.player-square:hover,
 .computer-square:hover {
-  background-color: #E23E57;
+  background-color: #e23e57;
   transition: 0.3s;
 }
 
@@ -71,7 +71,7 @@ html {
   height: 5em;
   width: 20em;
   border-radius: 0.25em;
-  background: #88304E;
+  background: #88304e;
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
 }
 
