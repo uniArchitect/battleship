@@ -119,10 +119,18 @@ renderShips(computerGameBoard, computerBoard);
 
 // Incorporate Gameboard.receiveAttack() function
 const attackCoordinate = (e) => {
-  console.log(e.target);
+  console.log(e.target.id);
 
-  // 12072022 - splice e.target X and Y coordinates to input into Gameboard.receiveAttack
-  // Gameboard.receiveAttack(e.target, e.target, computerBoard);
+  // Retrieve e.target values of X and Y coordinates to input into Gameboard.receiveAttack
+  let idTarget = e.target.id;
+  const x = Number(idTarget.charAt(idTarget.length - 4));
+  const y = Number(idTarget.charAt(idTarget.length - 2));
+
+  console.log(x, y);
+  console.log(computerGameBoard);
+
+  // Input attackCoordinates to computerGameBoard object
+  Gameboard.receiveAttack(x, y, computerGameBoard);
 
   // Define miss marker
   const miss = document.createElement("div");

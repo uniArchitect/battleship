@@ -76,7 +76,7 @@ class Gameboard {
             JSON.stringify(Gameboard.ships[i].position[j]) ==
             JSON.stringify([xCoord, yCoord])
           ) {
-            console.log("It works!");
+            console.log("You hit a ship!");
             Ship.hitCount(Gameboard.ships[i]);
             Ship.checkSunk(Gameboard.ships[i]);
             return Gameboard;
