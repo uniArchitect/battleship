@@ -18,6 +18,12 @@ const shipType = document.createElement('li');
 const typeLabel = document.createElement('label');
 const typeInput = document.createElement('input');
 
+shipMenu.appendChild(shipForm).className = 'ship-form';
+shipForm.appendChild(shipFormList).className = 'ship-form-list';
+shipFormList.append(shipOrientation, shipType);
+shipOrientation.append(orientationLabel, orientationInput);
+shipType.append(typeLabel, typeInput);
+
 container.appendChild(shipMenu).className = 'ship-menu';
 
 // Battleship UI Set Up
