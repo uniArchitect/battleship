@@ -6,6 +6,49 @@ html {
   color: #f8fafc; */
 }
 
+aside {
+  visibility: visible;
+  /* visibility: hidden; */
+  position: absolute;
+  top: 52em;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 0.25em;
+  background: #88304e;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
+}
+
+ul {
+  list-style: none;
+}
+
+label {
+  font-size: small;
+  font-weight: bold;
+}
+
+input {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 15px;
+  padding: 5px;
+  height: 1.3em;
+  width: 20em;
+  border-radius: .5em;
+  border: 1px solid;
+  border-color: #d3d3d3;
+  transition: .3s;
+}
+
+  input:hover {
+      transition: .3s;
+      border-color: #aaa;
+  }
+  
+  input:focus {
+      outline: none;
+      border: 1px solid #76c4ae;
+  }
+
 :root {
   --grid-cols: 1;
   --grid-rows: 1;
