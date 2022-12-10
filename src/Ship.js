@@ -22,6 +22,7 @@ class Ship {
   static checkSunk(ship) {
     if (ship.hitCount == ship.length) {
       ship.isAlive = false;
+      console.log('You sunk a ship!');
       return ship;
     } else return;
   }
