@@ -4,8 +4,21 @@ import Ship from "./Ship";
 import Gameboard from "./Gameboard";
 import Player from "./Player";
 
+const container = document.querySelector('.container');
 const playerContainer = document.querySelector(".Player-Container");
 const computerContainer = document.querySelector(".Computer-Container");
+
+const shipMenu = document.createElement('aside');
+const shipForm = document.createElement('form');
+const shipFormList = document.createElement('ul');
+const shipOrientation = document.createElement('li');
+const orientationLabel = document.createElement('label');
+const orientationInput = document.createElement('input');
+const shipType = document.createElement('li');
+const typeLabel = document.createElement('label');
+const typeInput = document.createElement('input');
+
+container.appendChild(shipMenu).className = 'ship-menu';
 
 // Battleship UI Set Up
 const gameBoard = new Gameboard(10, 10);
@@ -114,6 +127,9 @@ renderShips(computerGameBoard, computerBoard);
 
 // Render Battleship Attack on Click
 // Incorporate Gameboard.receiveAttack() function
+// If (Gameboard.ships.length == 5) {
+//   attackCoordinate();
+// };
 const attackCoordinate = (e) => {
   console.log(e.target.id);
 
