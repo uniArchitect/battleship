@@ -1,6 +1,6 @@
 body,
 html {
-  margin: 5em;
+  margin: 2.5em;
   /* background-color: #222629;
   font-family: "Montserrat", sans-serif;
   color: #f8fafc; */
@@ -10,7 +10,7 @@ aside {
   visibility: visible;
   /* visibility: hidden; */
   position: absolute;
-  top: 52em;
+  top: 48em;
   left: 50%;
   transform: translate(-50%,-50%);
   border-radius: 0.25em;
@@ -48,6 +48,21 @@ input {
       outline: none;
       border: 1px solid #76c4ae;
   }
+
+  /* Styles for Battleship list items */
+  /* #pinned-list-item {
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5em;
+  }
+  
+  #pinned-list-item:hover {
+    background: #4056a1;
+    border-radius: 0.5em;
+    transition: 0.15s;
+    transform: translateY(-2px);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  } */
 
 :root {
   --grid-cols: 1;

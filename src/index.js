@@ -9,20 +9,19 @@ const playerContainer = document.querySelector(".Player-Container");
 const computerContainer = document.querySelector(".Computer-Container");
 
 const shipMenu = document.createElement('aside');
-const shipForm = document.createElement('form');
-const shipFormList = document.createElement('ul');
-const shipOrientation = document.createElement('li');
-const orientationLabel = document.createElement('label');
-const orientationInput = document.createElement('input');
-const shipType = document.createElement('li');
-const typeLabel = document.createElement('label');
-const typeInput = document.createElement('input');
+const shipOrientation = document.createElement('ul');
+const shipType = document.createElement('ul');
+const vertical = document.createElement('li').innerText = 'Vertical';
+const horizontal = document.createElement('li').innerText = 'Horizontal';
+const carrier = document.createElement('li').innerText = 'Carrier';
+const battleship = document.createElement('li').innerText = 'Battleship';
+const cruiser = document.createElement('li').innerText = 'Cruiser';
+const submarine = document.createElement('li').innerText = 'Submarine';
+const destroyer = document.createElement('li').innerText = 'Destroyer'; 
 
-shipMenu.appendChild(shipForm).className = 'ship-form';
-shipForm.appendChild(shipFormList).className = 'ship-form-list';
-shipFormList.append(shipOrientation, shipType);
-shipOrientation.append(orientationLabel, orientationInput);
-shipType.append(typeLabel, typeInput);
+shipMenu.append(shipOrientation, shipType);
+shipOrientation.append(horizontal, vertical);
+shipType.append(carrier, battleship, cruiser, submarine, destroyer);
 
 container.appendChild(shipMenu).className = 'ship-menu';
 
@@ -95,7 +94,7 @@ const assignShip = (e) => {
   // Y Coordinate - Convert to Number
   const y = Number(idTarget.charAt(idTarget.length - 2));  
   // Need external input for ship length argument
-
+ 
   // Need external input for vertical and horizontal argument
 
   Gameboard.placeShip("horizontal", x, y, 5, gameBoard);
@@ -103,7 +102,7 @@ const assignShip = (e) => {
 };
 
 // boardSquare.forEach((boardSquare) => {
-//     boardSquare.addEventListener("click", assignShip);
+//     boardSquare.addEvenmMenuener("click", assignShip);
 //   });
 
 // Render Battleship positions
@@ -177,7 +176,7 @@ const attackCoordinate = (e) => {
   };
 };
 
-// Add event listener for each board square
+// Add eventmMenuener for each board square
 boardSquare.forEach((boardSquare) => {
   boardSquare.addEventListener("click", attackCoordinate, { once: true });
 });
