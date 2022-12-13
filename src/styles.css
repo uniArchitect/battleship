@@ -6,18 +6,6 @@ html {
   color: #f8fafc; */
 }
 
-aside {
-  visibility: visible;
-  /* visibility: hidden; */
-  position: absolute;
-  top: 48em;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  border-radius: 0.25em;
-  background: #88304e;
-  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
-}
-
 ul {
   list-style: none;
 }
@@ -106,6 +94,18 @@ input {
   gap: 2.5em;
 }
 
+.hidden-container {
+  position: absolute;
+  top: 15em;
+  left: 6.5%;
+  margin: 2.5em;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 5em;
+}
+
 .Player-Display-Container {
   display: flex;
   justify-content: center;
@@ -133,8 +133,21 @@ input {
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
 }
 
-.Player-Container,
+/* draft */
 .Computer-Container {
+  visibility: hidden;
+}
+
+.ship-menu {
+  border-radius: 0.25em;
+  background: #88304e;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
+}
+
+.Player-Container,
+.Computer-Container,
+.ship-menu,
+.dummy-menu {
   display: grid;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
