@@ -94,7 +94,7 @@ input {
   gap: 2.5em;
 }
 
-.hidden-container {
+.menu-container {
   position: absolute;
   top: 15em;
   left: 6.5%;

@@ -8,14 +8,8 @@ const container = document.querySelector('.container');
 const playerContainer = document.querySelector(".Player-Container");
 const computerContainer = document.querySelector(".Computer-Container");
 
-const hiddenContainer = document.createElement('div');
-
-document.body.appendChild(hiddenContainer).className = 'hidden-container';
-
-const shipMenu = document.createElement('div');
-const dummyMenu = document.createElement('div');
-const shipOrientation = document.createElement('ul');
-const shipType = document.createElement('ul');
+const shipOrientation = document.querySelector('.ship-orientation');
+const shipType = document.querySelector('.ship-type');
 const vertical = document.querySelector('#orient-vertical');
 const horizontal = document.querySelector('#orient-horizontal');
 const carrier = document.querySelector('#carrier');
@@ -23,13 +17,6 @@ const battleship = document.querySelector('#battleship');
 const cruiser = document.querySelector('#cruiser');
 const submarine = document.querySelector('#submarine');
 const destroyer = document.querySelector('#destroyer');
-
-shipMenu.append(shipOrientation, shipType);
-shipOrientation.append(horizontal, vertical);
-shipType.append(carrier, battleship, cruiser, submarine, destroyer);
-
-hiddenContainer.appendChild(shipMenu).className = 'ship-menu';
-hiddenContainer.appendChild(dummyMenu).className = 'dummy-menu';
 
 // Battleship UI Set Up
 const gameBoard = new Gameboard(10, 10);
