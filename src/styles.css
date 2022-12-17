@@ -33,6 +33,32 @@ label {
   background-color: #88304e;
 }
 
+.orientation-dropdown,
+.type-dropdown {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+li {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+li:hover {
+  background-color: #ddd;
+}
+
+/* Class to assign when dropdown is selected */
+.show {
+  display: block;
+}
+
 input {
   font-family: "Montserrat", sans-serif;
   margin-bottom: 15px;
@@ -160,6 +186,9 @@ input:focus {
   border-radius: 0.25em;
   background: #88304e;
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
+  /* For dropdown */
+  position: relative;
+  display: inline-block;
 }
 
 .Player-Container,
