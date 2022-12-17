@@ -4,19 +4,19 @@ import Ship from "./Ship";
 import Gameboard from "./Gameboard";
 import Player from "./Player";
 
-const container = document.querySelector('.container');
+const container = document.querySelector(".container");
 const playerContainer = document.querySelector(".Player-Container");
 const computerContainer = document.querySelector(".Computer-Container");
 
-const shipOrientation = document.querySelector('.ship-orientation');
-const shipType = document.querySelector('.ship-type');
-const vertical = document.querySelector('#orient-vertical');
-const horizontal = document.querySelector('#orient-horizontal');
-const carrier = document.querySelector('#carrier');
-const battleship = document.querySelector('#battleship');
-const cruiser = document.querySelector('#cruiser');
-const submarine = document.querySelector('#submarine');
-const destroyer = document.querySelector('#destroyer');
+const shipOrientation = document.querySelector(".ship-orientation");
+const shipType = document.querySelector(".ship-type");
+const vertical = document.querySelector("#orient-vertical");
+const horizontal = document.querySelector("#orient-horizontal");
+const carrier = document.querySelector("#carrier");
+const battleship = document.querySelector("#battleship");
+const cruiser = document.querySelector("#cruiser");
+const submarine = document.querySelector("#submarine");
+const destroyer = document.querySelector("#destroyer");
 
 // Battleship UI Set Up
 const gameBoard = new Gameboard(10, 10);
@@ -51,24 +51,24 @@ const boardSquare = document.querySelectorAll(".computer-square");
 
 // Assign Player ship coordinates - Draft function
 const draftPlayerAssignShip = (board) => {
-    Gameboard.placeShip("horizontal", 3, 2, 5, board);
-    Gameboard.placeShip("vertical", 1, 8, 4, board);
-    Gameboard.placeShip("horizontal", 6, 3, 3, board);
-    Gameboard.placeShip("horizontal", 8, 3, 3, board);
-    Gameboard.placeShip("vertical", 5, 1, 2, board);    
+  Gameboard.placeShip("horizontal", 3, 2, 5, board);
+  Gameboard.placeShip("vertical", 1, 8, 4, board);
+  Gameboard.placeShip("horizontal", 6, 3, 3, board);
+  Gameboard.placeShip("horizontal", 8, 3, 3, board);
+  Gameboard.placeShip("vertical", 5, 1, 2, board);
 
-    console.log(board);
-    console.log(board.ships[0].position[0]);
-    console.log(`[${board.ships[0].position[0]}]`);
+  console.log(board);
+  console.log(board.ships[0].position[0]);
+  console.log(`[${board.ships[0].position[0]}]`);
 
-    return board;
+  return board;
 };
 const draftComputerAssignShip = (board) => {
   Gameboard.placeShip("horizontal", 2, 1, 5, board);
   Gameboard.placeShip("vertical", 0, 7, 4, board);
   Gameboard.placeShip("horizontal", 5, 4, 3, board);
   Gameboard.placeShip("horizontal", 7, 4, 3, board);
-  Gameboard.placeShip("vertical", 4, 0, 2, board);    
+  Gameboard.placeShip("vertical", 4, 0, 2, board);
 
   console.log(board);
   console.log(board.ships[0].position[0]);
@@ -85,9 +85,9 @@ const assignShip = (e) => {
   // X Coordinate - Convert to Number
   const x = Number(idTarget.charAt(idTarget.length - 4));
   // Y Coordinate - Convert to Number
-  const y = Number(idTarget.charAt(idTarget.length - 2));  
+  const y = Number(idTarget.charAt(idTarget.length - 2));
   // Need external input for ship length argument
- 
+
   // Need external input for vertical and horizontal argument
 
   Gameboard.placeShip("horizontal", x, y, 5, gameBoard);
@@ -103,22 +103,24 @@ const renderShips = (board, playerBoard) => {
   // Set up template to select each ship position - Set up for loop to cycle through all ships and ships positions
   for (let i = 0; i < board.ships.length; i++) {
     for (let j = 0; j < board.ships[i].position.length; j++) {
-      let occupiedSquare = document.getElementById(`${playerBoard.className}-[${board.ships[i].position[j]}]`)
-        // Find ship coordinates in 'player-board-square' and highlights the coordinates
-      if (occupiedSquare.className == 'player-square') {
-          occupiedSquare.style.background = '#E23E57';  
-        } else if (occupiedSquare.className == 'computer-square') {
-          occupiedSquare.classList.add('occupied-target');
-        }   
-        // Find ship coordinates in 'computer-board-square' and highlights the coordinates
-        // Create unique ID or Class for player and computer grids
-        // Computer grid does not need to highlight enemy ships UNTIL they are hit
-        // else if (occupiedSquare.className == 'computer-square') {
-        //   occupiedSquare.style.background = '#E23E57';
-        // }     
+      let occupiedSquare = document.getElementById(
+        `${playerBoard.className}-[${board.ships[i].position[j]}]`
+      );
+      // Find ship coordinates in 'player-board-square' and highlights the coordinates
+      if (occupiedSquare.className == "player-square") {
+        occupiedSquare.style.background = "#E23E57";
+      } else if (occupiedSquare.className == "computer-square") {
+        occupiedSquare.classList.add("occupied-target");
+      }
+      // Find ship coordinates in 'computer-board-square' and highlights the coordinates
+      // Create unique ID or Class for player and computer grids
+      // Computer grid does not need to highlight enemy ships UNTIL they are hit
+      // else if (occupiedSquare.className == 'computer-square') {
+      //   occupiedSquare.style.background = '#E23E57';
+      // }
     }
   }
-}
+};
 
 renderShips(gameBoard, playerBoard);
 renderShips(computerGameBoard, computerBoard);
@@ -162,11 +164,11 @@ const attackCoordinate = (e) => {
 
   // Change game square
   // Incorporate if statement to determine if hit or miss will be used based on secondary class (assigned ship coordinates) of the board square
-  if (e.target.classList.contains('occupied-target')) {
+  if (e.target.classList.contains("occupied-target")) {
     e.target.appendChild(hit);
   } else {
     e.target.appendChild(miss);
-  };
+  }
 };
 
 // Add eventmMenuener for each board square

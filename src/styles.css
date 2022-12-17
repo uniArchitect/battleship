@@ -15,30 +15,48 @@ label {
   font-weight: bold;
 }
 
+/* Ship orientation and type dropdown styles */
+.orientation-button,
+.type-button {
+  background-color: #76c4ae;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.orientation-button:hover,
+.type-button:hover,
+.orientation-button:focus,
+.type-button:focus {
+  background-color: #88304e;
+}
+
 input {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin-bottom: 15px;
   padding: 5px;
   height: 1.3em;
   width: 20em;
-  border-radius: .5em;
+  border-radius: 0.5em;
   border: 1px solid;
   border-color: #d3d3d3;
-  transition: .3s;
+  transition: 0.3s;
 }
 
-  input:hover {
-      transition: .3s;
-      border-color: #aaa;
-  }
-  
-  input:focus {
-      outline: none;
-      border: 1px solid #76c4ae;
-  }
+input:hover {
+  transition: 0.3s;
+  border-color: #aaa;
+}
 
-  /* Styles for Battleship list items */
-  /* #pinned-list-item {
+input:focus {
+  outline: none;
+  border: 1px solid #76c4ae;
+}
+
+/* Styles for Battleship list items */
+/* #pinned-list-item {
     text-decoration: none;
     color: inherit;
     padding: 0.5em;
