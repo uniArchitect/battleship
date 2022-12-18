@@ -37,6 +37,29 @@ const showList = (e) => {
 orientButton.addEventListener('click', showList);
 typeButton.addEventListener('click', showList);
 
+// Dropdown select
+const $orientation = document.querySelectorAll(".orientation");
+const $type = document.querySelectorAll(".type");
+
+const selectListO = (e) => {
+  
+  let selectionText = `${e.target.innerHTML}`;
+  orientButton.innerHTML = selectionText;
+
+  return orientButton;
+}
+
+const selectListT = (e) => {
+  
+  let selectionText = `${e.target.innerHTML}`;
+  typeButton.innerHTML = selectionText;
+
+  return typeButton;
+}
+
+$orientation.forEach($orientation => $orientation.addEventListener('click', selectListO));
+$type.forEach($type => $type.addEventListener('click', selectListT));
+
 // Battleship UI Set Up
 const gameBoard = new Gameboard(10, 10);
 const computerGameBoard = new Gameboard(10, 10);
