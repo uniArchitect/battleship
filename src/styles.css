@@ -17,20 +17,28 @@ label {
 
 /* Ship orientation and type dropdown styles */
 .orientation-button,
-.type-button {
+.type-button,
+.start-game {
   background-color: #F6F6F6;
   /* color: white; */
   padding: 16px;
+  width: 12em;
   font-size: 16px;
   border: none;
   border-radius: .25em;
   cursor: pointer;
 }
 
+.start-game {
+  width: 8em;
+}
+
 .orientation-button:hover,
 .type-button:hover,
 .orientation-button:focus,
-.type-button:focus {
+.type-button:focus,
+.start-game:hover,
+.start-game:focus {
   background-color: #e23e57;
   color: white;
   transition: 0.3s;
@@ -39,9 +47,9 @@ label {
 .orientation-dropdown {
   display: none;
   position: absolute;
-  top: 12em;
+  top: 10em;
   background-color: #f1f1f1;
-  min-width: 160px;
+  min-width: 12em;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
@@ -49,9 +57,9 @@ label {
 .type-dropdown {
   display: none;
   position: absolute;
-  top: 17em;
+  top: 14.5em;
   background-color: #f1f1f1;
-  min-width: 160px;
+  min-width: 12em;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
@@ -195,6 +203,7 @@ input:focus {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 1.5em;
   margin: 1.5em;
 }

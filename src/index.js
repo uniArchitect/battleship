@@ -18,7 +18,7 @@ const cruiser = document.querySelector("#cruiser");
 const submarine = document.querySelector("#submarine");
 const destroyer = document.querySelector("#destroyer");
 
-// Test Dropdown
+// Test Dropdown - Dropdown can be its own separate js file?
 const orientButton = document.querySelector('.orientation-button');
 const typeButton = document.querySelector('.type-button');
 
