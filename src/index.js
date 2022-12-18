@@ -18,6 +18,31 @@ const cruiser = document.querySelector("#cruiser");
 const submarine = document.querySelector("#submarine");
 const destroyer = document.querySelector("#destroyer");
 
+// Test Dropdown
+const exampleButton = document.querySelector('.orientation-button');
+const typeButton = document.querySelector('.type-dropdown');
+
+const showList = () => {
+  let visibleList = document.querySelector('.orientation-dropdown');
+  if (visibleList.style.display == 'inline') {
+    visibleList.style.display = 'none';
+  } else if (visibleList.style.display = 'none') {
+    visibleList.style.display = 'inline';
+  };
+};
+
+const showListType = () => {
+  let visibleList = document.querySelector('.type-dropdown');
+  if (visibleList.style.display == 'inline') {
+    visibleList.style.display = 'none';
+  } else if (visibleList.style.display = 'none') {
+    visibleList.style.display = 'inline';
+  };
+};
+
+exampleButton.addEventListener('click', showList);
+typeButton.addEventListener('click', showListType);
+
 // Battleship UI Set Up
 const gameBoard = new Gameboard(10, 10);
 const computerGameBoard = new Gameboard(10, 10);
