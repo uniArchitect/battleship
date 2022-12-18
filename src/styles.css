@@ -18,11 +18,12 @@ label {
 /* Ship orientation and type dropdown styles */
 .orientation-button,
 .type-button {
-  background-color: #76c4ae;
-  color: white;
+  background-color: #F6F6F6;
+  /* color: white; */
   padding: 16px;
   font-size: 16px;
   border: none;
+  border-radius: .25em;
   cursor: pointer;
 }
 
@@ -30,7 +31,9 @@ label {
 .type-button:hover,
 .orientation-button:focus,
 .type-button:focus {
-  background-color: #88304e;
+  background-color: #e23e57;
+  color: white;
+  transition: 0.3s;
 }
 
 .orientation-dropdown {
@@ -45,7 +48,6 @@ label {
 .type-dropdown {
   display: none;
   position: absolute;
-  top: 15em;
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -68,7 +70,8 @@ li:hover {
   display: block;
 }
 
-input {
+/* Player Name Input */
+/* input {
   font-family: "Montserrat", sans-serif;
   margin-bottom: 15px;
   padding: 5px;
@@ -88,22 +91,7 @@ input:hover {
 input:focus {
   outline: none;
   border: 1px solid #76c4ae;
-}
-
-/* Styles for Battleship list items */
-/* #pinned-list-item {
-    text-decoration: none;
-    color: inherit;
-    padding: 0.5em;
-  }
-  
-  #pinned-list-item:hover {
-    background: #4056a1;
-    border-radius: 0.5em;
-    transition: 0.15s;
-    transform: translateY(-2px);
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-  } */
+} */
 
 :root {
   --grid-cols: 1;
@@ -197,7 +185,15 @@ input:focus {
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 3px 10px 0 rgb(0 0 0 / 19%);
   /* For dropdown */
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
+}
+
+.ship-menu-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5em;
+  margin: 1.5em;
 }
 
 .Player-Container,
