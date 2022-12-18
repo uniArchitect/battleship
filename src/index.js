@@ -20,7 +20,7 @@ const destroyer = document.querySelector("#destroyer");
 
 // Test Dropdown
 const exampleButton = document.querySelector('.orientation-button');
-const typeButton = document.querySelector('.type-dropdown');
+const typeButton = document.querySelector('.type-button');
 
 const showList = () => {
   let visibleList = document.querySelector('.orientation-dropdown');
