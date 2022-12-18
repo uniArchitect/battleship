@@ -19,29 +19,23 @@ const submarine = document.querySelector("#submarine");
 const destroyer = document.querySelector("#destroyer");
 
 // Test Dropdown
-const exampleButton = document.querySelector('.orientation-button');
+const orientButton = document.querySelector('.orientation-button');
 const typeButton = document.querySelector('.type-button');
 
-const showList = () => {
-  let visibleList = document.querySelector('.orientation-dropdown');
+const showList = (e) => {
+
+  let visibleList = document.querySelector(`.${e.target.nextElementSibling.className}`);
+
   if (visibleList.style.display == 'inline') {
     visibleList.style.display = 'none';
   } else if (visibleList.style.display = 'none') {
     visibleList.style.display = 'inline';
+    visibleList.style.transition = '.3s';
   };
-};
+}
 
-const showListType = () => {
-  let visibleList = document.querySelector('.type-dropdown');
-  if (visibleList.style.display == 'inline') {
-    visibleList.style.display = 'none';
-  } else if (visibleList.style.display = 'none') {
-    visibleList.style.display = 'inline';
-  };
-};
-
-exampleButton.addEventListener('click', showList);
-typeButton.addEventListener('click', showListType);
+orientButton.addEventListener('click', showList);
+typeButton.addEventListener('click', showList);
 
 // Battleship UI Set Up
 const gameBoard = new Gameboard(10, 10);
