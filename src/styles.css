@@ -37,8 +37,7 @@ label {
 .type-button:hover,
 .orientation-button:focus,
 .type-button:focus,
-.start-game:hover,
-.start-game:focus {
+.start-game:hover {
   background-color: #e23e57;
   color: white;
   transition: 0.3s;

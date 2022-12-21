@@ -41,24 +41,25 @@ typeButton.addEventListener('click', showList);
 const $orientation = document.querySelectorAll(".orientation");
 const $type = document.querySelectorAll(".type");
 
-const selectListO = (e) => {
+const selectListOrientation = (e) => {
   
   let selectionText = `${e.target.innerHTML}`;
   orientButton.innerHTML = selectionText;
+  console.log(selectionText);
 
   return orientButton;
 }
-
-const selectListT = (e) => {
+const selectListType = (e) => {
   
   let selectionText = `${e.target.innerHTML}`;
   typeButton.innerHTML = selectionText;
+  console.log(selectionText);
 
   return typeButton;
 }
 
-$orientation.forEach($orientation => $orientation.addEventListener('click', selectListO));
-$type.forEach($type => $type.addEventListener('click', selectListT));
+$orientation.forEach($orientation => $orientation.addEventListener('click', selectListOrientation));
+$type.forEach($type => $type.addEventListener('click', selectListType));
 
 // Battleship UI Set Up
 const gameBoard = new Gameboard(10, 10);
@@ -119,7 +120,7 @@ const draftComputerAssignShip = (board) => {
   return board;
 };
 
-draftPlayerAssignShip(gameBoard);
+// draftPlayerAssignShip(gameBoard);
 draftComputerAssignShip(computerGameBoard);
 
 const assignShip = (e) => {
@@ -128,17 +129,33 @@ const assignShip = (e) => {
   const x = Number(idTarget.charAt(idTarget.length - 4));
   // Y Coordinate - Convert to Number
   const y = Number(idTarget.charAt(idTarget.length - 2));
-  // Need external input for ship length argument
-
   // Need external input for vertical and horizontal argument
+  const orientation = orientButton.innerHTML;
+  // Need external input for ship length argument
+  // const type = typeButton.innerHTML;
+  if (typeButton.innerHTML == 'Carrier') {
+    const type = 5;
+    Gameboard.placeShip(orientation, x, y, type, gameBoard);
+  } else if (typeButton.innerHTML == 'Battleship') {
+    const type = 4;
+    Gameboard.placeShip(orientation, x, y, type, gameBoard);
+  } else if (typeButton.innerHTML == 'Cruiser') {
+    const type = 3;
+    Gameboard.placeShip(orientation, x, y, type, gameBoard);
+  } else if (typeButton.innerHTML == 'Submarine') {
+    const type = 3;
+    Gameboard.placeShip(orientation, x, y, type, gameBoard);
+  } else if (typeButton.innerHTML == 'Destroyer') {
+    const type = 2;
+    Gameboard.placeShip(orientation, x, y, type, gameBoard);
+  };
 
-  Gameboard.placeShip("horizontal", x, y, 5, gameBoard);
   console.log(gameBoard);
 };
 
-// boardSquare.forEach((boardSquare) => {
-//     boardSquare.addEvenmMenuener("click", assignShip);
-//   });
+boardSquare.forEach((boardSquare) => {
+  boardSquare.addEventListener("click", assignShip);
+});
 
 // Render Battleship positions
 const renderShips = (board, playerBoard) => {
