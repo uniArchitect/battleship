@@ -91,6 +91,7 @@ createBoard(playerBoard, gameBoard.rows, gameBoard.cols);
 createBoard(computerBoard, computerGameBoard.rows, computerGameBoard.cols);
 
 const boardSquare = document.querySelectorAll(".computer-square");
+const playerSquare = document.querySelectorAll(".player-square");
 
 // Assign Player ship coordinates - Draft function
 const draftPlayerAssignShip = (board) => {
@@ -130,31 +131,37 @@ const assignShip = (e) => {
   // Y Coordinate - Convert to Number
   const y = Number(idTarget.charAt(idTarget.length - 2));
   // Need external input for vertical and horizontal argument
-  const orientation = orientButton.innerHTML;
+  const orientation = orientButton.innerHTML.toLowerCase();
   // Need external input for ship length argument
   // const type = typeButton.innerHTML;
   if (typeButton.innerHTML == 'Carrier') {
     const type = 5;
     Gameboard.placeShip(orientation, x, y, type, gameBoard);
+    renderShips(gameBoard, playerBoard);
   } else if (typeButton.innerHTML == 'Battleship') {
     const type = 4;
     Gameboard.placeShip(orientation, x, y, type, gameBoard);
+    renderShips(gameBoard, playerBoard);
   } else if (typeButton.innerHTML == 'Cruiser') {
     const type = 3;
     Gameboard.placeShip(orientation, x, y, type, gameBoard);
+    renderShips(gameBoard, playerBoard);
   } else if (typeButton.innerHTML == 'Submarine') {
     const type = 3;
     Gameboard.placeShip(orientation, x, y, type, gameBoard);
+    renderShips(gameBoard, playerBoard);
   } else if (typeButton.innerHTML == 'Destroyer') {
     const type = 2;
     Gameboard.placeShip(orientation, x, y, type, gameBoard);
+    renderShips(gameBoard, playerBoard);
   };
 
   console.log(gameBoard);
+  return gameBoard;
 };
 
-boardSquare.forEach((boardSquare) => {
-  boardSquare.addEventListener("click", assignShip);
+playerSquare.forEach((playerSquare) => {
+  playerSquare.addEventListener("click", assignShip);
 });
 
 // Render Battleship positions
