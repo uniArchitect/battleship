@@ -146,6 +146,9 @@ const assignShip = (e) => {
   if (typeButton.innerHTML == 'Carrier') {
     const type = 5;
     displayShips(type);
+    // document.querySelector(`#${typeButton.innerHTML.toLowerCase()}`) -> ex. 'carrier'
+    let selectedType = document.querySelector(`#${typeButton.innerHTML.toLowerCase()}`);
+    selectedType.remove();
   } else if (typeButton.innerHTML == 'Battleship') {
     const type = 4;
     displayShips(type);
