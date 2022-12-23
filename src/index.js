@@ -44,16 +44,20 @@ const $type = document.querySelectorAll(".type");
 const selectListOrientation = (e) => {
   
   let selectionText = `${e.target.innerHTML}`;
+  let visibleList = document.querySelector('.orientation-dropdown');
+
   orientButton.innerHTML = selectionText;
-  console.log(selectionText);
+  visibleList.style.display = 'none';
 
   return orientButton;
 }
 const selectListType = (e) => {
   
   let selectionText = `${e.target.innerHTML}`;
+  let visibleList = document.querySelector('.type-dropdown');
+
   typeButton.innerHTML = selectionText;
-  console.log(selectionText);
+  visibleList.style.display = 'none';
 
   return typeButton;
 }
@@ -94,19 +98,19 @@ const boardSquare = document.querySelectorAll(".computer-square");
 const playerSquare = document.querySelectorAll(".player-square");
 
 // Assign Player ship coordinates - Draft function
-const draftPlayerAssignShip = (board) => {
-  Gameboard.placeShip("horizontal", 3, 2, 5, board);
-  Gameboard.placeShip("vertical", 1, 8, 4, board);
-  Gameboard.placeShip("horizontal", 6, 3, 3, board);
-  Gameboard.placeShip("horizontal", 8, 3, 3, board);
-  Gameboard.placeShip("vertical", 5, 1, 2, board);
+// const draftPlayerAssignShip = (board) => {
+//   Gameboard.placeShip("horizontal", 3, 2, 5, board);
+//   Gameboard.placeShip("vertical", 1, 8, 4, board);
+//   Gameboard.placeShip("horizontal", 6, 3, 3, board);
+//   Gameboard.placeShip("horizontal", 8, 3, 3, board);
+//   Gameboard.placeShip("vertical", 5, 1, 2, board);
 
-  console.log(board);
-  console.log(board.ships[0].position[0]);
-  console.log(`[${board.ships[0].position[0]}]`);
+//   console.log(board);
+//   console.log(board.ships[0].position[0]);
+//   console.log(`[${board.ships[0].position[0]}]`);
 
-  return board;
-};
+//   return board;
+// };
 const draftComputerAssignShip = (board) => {
   Gameboard.placeShip("horizontal", 2, 1, 5, board);
   Gameboard.placeShip("vertical", 0, 7, 4, board);
