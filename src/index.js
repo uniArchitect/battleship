@@ -134,26 +134,26 @@ const assignShip = (e) => {
   const orientation = orientButton.innerHTML.toLowerCase();
   // Need external input for ship length argument
   // const type = typeButton.innerHTML;
+  const displayShips = (type) => {
+    Gameboard.placeShip(orientation, x, y, type, gameBoard);
+    renderShips(gameBoard, playerBoard);  
+  }
+  
   if (typeButton.innerHTML == 'Carrier') {
     const type = 5;
-    Gameboard.placeShip(orientation, x, y, type, gameBoard);
-    renderShips(gameBoard, playerBoard);
+    displayShips(type);
   } else if (typeButton.innerHTML == 'Battleship') {
     const type = 4;
-    Gameboard.placeShip(orientation, x, y, type, gameBoard);
-    renderShips(gameBoard, playerBoard);
+    displayShips(type);
   } else if (typeButton.innerHTML == 'Cruiser') {
     const type = 3;
-    Gameboard.placeShip(orientation, x, y, type, gameBoard);
-    renderShips(gameBoard, playerBoard);
+    displayShips(type);
   } else if (typeButton.innerHTML == 'Submarine') {
     const type = 3;
-    Gameboard.placeShip(orientation, x, y, type, gameBoard);
-    renderShips(gameBoard, playerBoard);
+    displayShips(type);
   } else if (typeButton.innerHTML == 'Destroyer') {
     const type = 2;
-    Gameboard.placeShip(orientation, x, y, type, gameBoard);
-    renderShips(gameBoard, playerBoard);
+    displayShips(type);
   };
 
   console.log(gameBoard);
