@@ -149,18 +149,31 @@ const assignShip = (e) => {
     // document.querySelector(`#${typeButton.innerHTML.toLowerCase()}`) -> ex. 'carrier'
     let selectedType = document.querySelector(`#${typeButton.innerHTML.toLowerCase()}`);
     selectedType.remove();
+    typeButton.innerHTML = 'Type';
   } else if (typeButton.innerHTML == 'Battleship') {
     const type = 4;
     displayShips(type);
+    let selectedType = document.querySelector(`#${typeButton.innerHTML.toLowerCase()}`);
+    selectedType.remove();
+    typeButton.innerHTML = 'Type';
   } else if (typeButton.innerHTML == 'Cruiser') {
     const type = 3;
     displayShips(type);
+    let selectedType = document.querySelector(`#${typeButton.innerHTML.toLowerCase()}`);
+    selectedType.remove();
+    typeButton.innerHTML = 'Type';
   } else if (typeButton.innerHTML == 'Submarine') {
     const type = 3;
     displayShips(type);
+    let selectedType = document.querySelector(`#${typeButton.innerHTML.toLowerCase()}`);
+    selectedType.remove();
+    typeButton.innerHTML = 'Type';
   } else if (typeButton.innerHTML == 'Destroyer') {
     const type = 2;
     displayShips(type);
+    let selectedType = document.querySelector(`#${typeButton.innerHTML.toLowerCase()}`);
+    selectedType.remove();
+    typeButton.innerHTML = 'Type';
   };
 
   console.log(gameBoard);
